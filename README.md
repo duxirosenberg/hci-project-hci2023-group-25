@@ -146,6 +146,8 @@ Here you can find the summaries to each of the interviews we conducted
 <!-- -->
 &nbsp;
 
+You can find the interview notes for each interview [here](Deliverables/Needfinding)
+
 
 
 From the interviews, we learned that a successful app for shared living needs to prioritize facilitating smooth communication between flatmates and providing robust expense and chore management tools. The varied living situations and preferences expressed by the interviewees highlight the importance of making these features customizable and user-friendly. Privacy concerns and the balancing act between structured living and flexibility also emerged as significant points, indicating that our app should offer varied solutions to cater to different household dynamics and individual preferences. This insight from real-life shared living situations will be crucial in developing an app that can genuinely cater to the needs of its users.

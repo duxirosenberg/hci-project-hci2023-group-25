@@ -1,17 +1,19 @@
 <p align="left" width="100%">
   <img height="56" src="img/logo-ait.png"> &nbsp; &nbsp;
-  <img height="56" src="img/eth-sip-3l.png">     
+  <img height="56" src="img/eth-sip-3l.png">
 </p>
 
 # Shared Flat Management, Group 25
+
 #### Simon Streuli, Josh Anderegg, Nic Schellenbaum, Florian Affolter,  Jannek Ulm, Douglas Orsini-Rosenberg
 
 ## Project description
+
 <p align="center" width="100%">
   <img height="300" src="img/photo1_desk.jpg">  
 </p>
 
-Ever lived with roommates? If so, you know that managing shared expenses, chores, and hangouts can sometimes get... well, messy. And let’s face it - while living with others can be fun and wallet-friendly, it's no secret that it comes with its fair share of challenges, from that ever-growing pile of unwashed dishes to the mystery of who last paid the internet bill. 
+Ever lived with roommates? If so, you know that managing shared expenses, chores, and hangouts can sometimes get... well, messy. And let’s face it - while living with others can be fun and wallet-friendly, it's no secret that it comes with its fair share of challenges, from that ever-growing pile of unwashed dishes to the mystery of who last paid the internet bill.
 
 That’s why we’re  excited to be working on a new app designed to make shared living just a bit easier. Think of it as your friendly flatmate who’s always got your back, helping you keep track of bills, chores, and who’s turn it is to buy toilet paper next. 🧻💸
 
@@ -20,6 +22,7 @@ With our app, we're not just aiming to bring order to the chaos of shared expens
 Stay tuned, and let’s make the shared living dream a smooth-sailing reality together! 🚢🏠
 
 ## Week 02/03: User Interviews
+
 In the development process of our shared flat management app, this week was especially insightful. Engaging directly with potential users, we focused our efforts on conducting user interviews, crucial for a user-centred design approach.
 
 Understanding user needs, experiences, and pain points is paramount to inform and guide our design principles and processes. The aim is to create a tool that genuinely simplifies and enhances the co-living experience for its users, addressing actual issues they face in their day-to-day shared living situation.
@@ -27,7 +30,7 @@ Understanding user needs, experiences, and pain points is paramount to inform an
 We conducted a total of 12 interviews, extracting valuable data from varied experiences and stories of individuals living in shared flats. This data will directly influence our design and development decisions, ensuring our app is tailored to meet real, identified needs and provide practical, useful solutions.
 
 The interview questions were meticulously crafted, targeting various aspects of shared living. Here’s the  list of questions we asked:
- 
+
 <details>
 <summary>Interview Questions</summary>
 <ul>
@@ -93,52 +96,63 @@ The interview questions were meticulously crafted, targeting various aspects of 
 </details>
 &nbsp;
 
-
 Here you can find the summaries to each of the interviews we conducted
 <details>
   <summary> Interview Summaries</summary>
 
-  ### Interview 1: Christoph 
+### Interview 1: Christoph
+
   Christoph is a 23 year old student who lives together with 3 people in a shared flat. He chose to live in a shared flat as it's the cheapest way of moving out. He described his living situation as pragmatic and not familiar in the sense that they don't eat together, or hang out together on a regular basis.
   Not every flatmate is doing their chores diligently and timely, he therefore needs a way to organise and communicate with them who does what and when. Communication among flatmates can be difficult, as not everyone is around all the time and sometimes it's just uncomfortable to critise peers on their cleanliness, he wishes for a way in which this communication can be less direct and problems easier showcased. He also expressed the need for a way to verify who buys what, as it happened multiple times that someone asked in the group chat if someon could buy an item and multiple people ended up buying one.
   One insight to take away from the interview is that communication and organisation of chores, issues and shopping is essential for flat management.
 
-  ### Interview 2: Nicolina
+### Interview 2: Nicolina
+
   Nicolina is a 22 year old student who lives together with 2 people in a shared flat. She chose to move out and a flat was simply the cheapest way of doing so. The living situation is somehwat familiar, as the flatmates eat together and also share a friend group.
   Issues within the shared flat mainly arise from flatmates not cleaning up after themselves, as well as miscommunications when it comes to tending the two cats. Communication can be difficult as some flatmates simply ignore, or forget critisism that was given for certain actions. She also does not want for a stricter organisation of chores or more rules, much rather a way to communicate having more common sense when it comes to flat management and cleanliness.
   One insight to take away from the interview is that stricter organisation is not necessarily something flatmates want, the end goal is having a clean apartment, which can be achieved by being more considerate in general.
 
-  ### Interview 3: Emil 
+### Interview 3: Emil
+
   Emil is a resident in a shared flat motivated by the high rental prices in Zurich. His typical day involves limited interaction with flatmates, mainly during university days, and he values the convenience of not buying communal items. Emill’s biggest challenge in the WG is finding compromises among flatmates. They primarily use WhatsApp and kitchen interactions for communication and Flatastic for cost-sharing. There have been no major financial issues, and he is generally satisfied with the cost-sharing process. Conflict resolution is rare due to minimal interaction. He places a strong emphasis on personal bedroom privacy and mentions no significant safety concerns. Flatastic is their preferred app for managing the flat, with a desire for improved expense categorization.
 
-  ### Interview 4: Sophie
+### Interview 4: Sophie
+
   Sophie chose to live in a shared flat to cohabit with her friends and follows a daily routine of work and shared activities. She appreciates the companionship and values the ability to share plans and time with flatmates. Sophie’s biggest challenge is the clear communication of shared standards and expectations. Communication with flatmates primarily occurs in person, addressing responsibilities and setting rules. Some communication issues revolve around topics like hanging jackets and meal coordination. They use both digital and paper notes for coordination. They are using Flatastic for shared expenses and are generally satisfied, though wishes for more detailed financial tracking are there. Conflicts are resolved through timely discussions. Sophie desires a simple, user-friendly flat management platform with categorized financial accounting.
 
-  ### Interview 5: Marvin
+### Interview 5: Marvin
+
   Marvin is 21 years old, studies economics at UZH and lives in a flat in Winterthur with 2 old schoolmates and 2 cats. He moved out to be more independent, but he still likes to interact with his flatmates occasionally. In his flat, food is generally shared, so there are many small expenses which he would like to track easily. He would also like to use a system to distribute chores, as right now things like taking out the trash often don't get done in a timely manner. He would also like some system to resolve conflicts before they negatively affect the atmosphere in the flat.
 
-  ### Interview 6: Carl 
+### Interview 6: Carl
+
   Carl is 23 years old, studies mechanical engineering at ETH and lives in a flat with a friend close to Zurich. He isn't at home very often, and he and his roommate don't interact very often in their day to day life. They have separate compartments in their fridge, so they don't share many expenses, because of which Carl doesn't want an application to handle the finances. Communication is not always easy however, and complaints about orderliness in the kitchen often go ignored, so Carl would like some way to "shame" his roommate to better his behaviour in the long term.
 
-  ### Interview 7: Max
+### Interview 7: Max
+
   Max (23) has experience living in a shared flat with three flatmates. They lived in a shared flat primarily because of its proximity to the campus. Their needs include a system for splitting and tracking shared expenses, improved communication for resolving minor conflicts, and a chores reminder, though they prefer paper-based chore planning.
   They don't see a specific need for a dedicated app, as most communication happens in person or through text messages, and chores are managed on paper. If an app were available, they would consider it primarily for expense splitting but might also explore additional features.
 
-  ### Interview 8: Mario
+### Interview 8: Mario
+
   Mario previously shared a flat with three flatmates, including Max, and has recently moved into a flat with just one other person. Their motivations for shared living are mostly cost-sharing, social interactions, and maintaining independence.
   There are existing tools for managing shared flats, both paper-based and in app form, but a single, comprehensive app would be preferred.
   A noteworthy insight was that the complexity of managing a household scales with its size.
 
-  ### Interview 9: Jonas
+### Interview 9: Jonas
+
   Jonas (24),student, decided on a shared living arrangement to cut down costs and for the appealing social aspect of community living. He follows a routine of quick breakfasts, working, and sometimes cooking with roommates in the evenings, after which they might hang out together or he spends time alone in his room. He appreciates the companionship and shared experiences most about living in a shared flat. Nevertheless, managing different lifestyles and coordinating cleaning schedules have proven to be significant challenges. Conflicts, particularly related to cleanliness and noise, sometimes go unresolved as forcing roommates to comply can be tough. They use WhatsApp and a fridge cleaning plan (which often gets ignored) for coordination and Splitwise for managing shared expenses like utilities. Occasionally, Jonas has to remind roommates to contribute financially. The bathroom often becomes a contention point due to varied cleanliness standards, and unannounced visits from roommates sometimes impinge on his privacy.
 
-  ### Interview 10: Mark
+### Interview 10: Mark
+
   Mark (23),student, chose shared living motivated by the prospects of making new friends and moving out of his family home. His day typically involves university in the morning, studying or working part-time in the afternoon, and evenings are often for either solo or communal cooking sessions. Constant company and divided responsibilities are the aspects he enjoys most about his living situation. However, challenges arise in managing noise, especially during exam periods, and aligning on cleaning habits. When it comes to shared responsibilities and issues, communication usually happens personally or via a WhatsApp group, but issues like last-minute guest arrangements and providing criticism can be problematic. Their method of dealing with cleaning and maintenance involves a cleaning schedule, although without strict rules, leading to the living room often being neglected in the cleaning rotation. Guest visits are usually flexible as long as it's not too late or loud, but unplanned overnight stays in the living room have been a problem. Mark sees a need for a more organized set of rules and a better system for financial overviews in the shared living setup.
 
-  ### Interview 11: Michael
+### Interview 11: Michael
+
   Michael finds shared living beneficial primarily for financial and social reasons but identifies cleanliness as a key challenge due to varying standards among flatmates. Communication channels utilized include direct interactions and WhatsApp, particularly when resolving issues that often crop up with changing roommates. Apps like Splitwise and Flatastic assist in managing finances and sharing costs of common purchases, though determining what should be bought communally can be tricky. Important conflict resolution often takes place during essential flat meetings. A desired feature in flat management apps is a tick-list. An open approach to hosting guests is common practice in the flat.
 
-  ### Interview 12: Sandra
+### Interview 12: Sandra
+
   Sandra acknowledges the shared financial and initial communal advantages of living in a flatshare, appreciating aspects like workload distribution and mutual support, especially during times of illness or absence. Challenges she encounters encompass discrepancies in cleanliness and responsibility, synchronized bathroom usage, concurrent utilization of common areas for varied activities, and differences in dietary and furnishing preferences. Communications, whether regarding finances or cleanliness standards, are conducted personally, or via WhatsApp, task lists, or in extreme cases, issuing terminations. While they use apps like Flatastic and Excel for financial and task management, Sandra wishes for a feature that allows regular financial reconciliations without constant manual input. Conflict resolution strategies range from discussions to terminations. As the primary tenant, Sandra seeks more recognition for her efforts and responsibilities. Continuous male visitors and an unlockable bathroom are sources of inconvenience. She also desires attention from administration regarding safety in the flat’s basement. An open policy regarding guests is maintained.
 
 </details>
@@ -148,18 +162,18 @@ Here you can find the summaries to each of the interviews we conducted
 
 You can find the interview notes for each interview [here](Deliverables/Needfinding)
 
-
-
 From the interviews, we learned that a successful app for shared living needs to prioritize facilitating smooth communication between flatmates and providing robust expense and chore management tools. The varied living situations and preferences expressed by the interviewees highlight the importance of making these features customizable and user-friendly. Privacy concerns and the balancing act between structured living and flexibility also emerged as significant points, indicating that our app should offer varied solutions to cater to different household dynamics and individual preferences. This insight from real-life shared living situations will be crucial in developing an app that can genuinely cater to the needs of its users.
 
+### Affinity Diagram
 
+From the above interviews we compiled an affinity diagram using virtual Post-it notes. It contains the most important findings across the three categories "user", "needs" and "insights".
 
-------
+![Screenshot of the affinity diagram](img/affinity-diagram.jpg)
 
 ## Ideation
 
     TODO
-    
+
 ## Evaluation
 
     TODO
@@ -167,7 +181,7 @@ From the interviews, we learned that a successful app for shared living needs to
 ## Low-fidelity Prototype
 
     TODO
-    
+
 ## Mid-fidelity Prototype
 
     TODO
@@ -175,7 +189,7 @@ From the interviews, we learned that a successful app for shared living needs to
 ## Hi-fidelity Prototype
 
     TODO
-    
+
 ## User study
 
     TODO

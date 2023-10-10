@@ -168,7 +168,7 @@ From the interviews, we learned that a successful app for shared living needs to
 
 From the above interviews we compiled an affinity diagram using virtual Post-it notes. It contains the most important findings across the three categories "user", "needs" and "insights".
 
-![Screenshot of the affinity diagram](img/affinity-diagram.jpg)
+[![Screenshot of the affinity diagram](img/affinity-diagram.jpg)](https://miro.com/app/board/uXjVNeu_mso=/?share_link_id=25530708981)
 
 ## Ideation
 

@@ -170,6 +170,51 @@ From the above interviews we compiled an affinity diagram using virtual Post-it 
 
 [![Screenshot of the affinity diagram](img/affinity-diagram.jpg)](https://miro.com/app/board/uXjVNeu_mso=/?share_link_id=25530708981)
 
+## Week 04: Desk research, "How might we" statements, Brainstorming
+
+### Desk Research
+
+To get additional insights, other than from the interviews, we conducted desk research. We looked at existing apps that are used for shared flat management and at articles and forum posts discussing such apps. Of special interest to us were the features that these apps offer, and their reviews on the app stores to see what users like and dislike about them.
+
+The detailed research can be found [here](Deliverables/Desk%20Research).
+
+In general, apps used for flat management can be divided into two categories: apps that provide a more holistic approach and try to implement a range of features which might be used in a co-living context, and apps that focus on a specific aspect of shared living. In the latter, most apps focus either on finance splitting or on chore management.
+
+The general sentiment among users seems to be that one app for everything is preferred, especially since everyone has to install the same app(s). However, those monolithic apps are more often than not lacking crucial features which many users would like to see. Apps which specialise on only one aspect of shared living are generally better at what they do, but users are reluctant to install multiple apps for different purposes.
+
+A "perfect" shared flat managment app should therefore provide a range of features, but also has to be very good at it, which is hard to achieve. Furthermore it is important, that it is easy to onboard new users, as it is hard to convince everyone to install a new app. Also, the app should be easy to use for simple tasks; many features may quickly become overwhelming.
+
+In the most important aspects, expense splitting and chore management, the featureset of most apps is pretty similar, whether they are specialised or not. Some of the most important features are:
+ * **All categories**
+  * Easy onboarding of new users
+  * One shared group where everyone can see everything
+ * **Expense splitting**
+  * Expense logging, with the possibility to add a picture of the receipt
+  * Expense splitting, with the possibility to split unevenly
+  * Built-in payment solutions, like connected PayPal or bank accounts
+ * **Chore management**
+   * Adding shared chores
+   * Assigning chores to specific people
+   * Setting deadlines and reminders
+   * Have a (personlaized or general) list of open tasks
+
+### "How might we" statements
+
+Based on the insights from the interviews and the desk research, we created the following open-ended "How might we" statements to guide our brainstorming process:
+
+1. How might we ensure that essential supplies are always stocked up, but not bought multiple times. 
+2. How might we ensure that all flatmates consistently engage and actively participate in using the app? 
+3. How might we make sure that the users keep information and responsibilities up to date? 
+4. How might we design a task management system that is flexible and adaptable? 
+5. How might we organize the flat in a way where everyone is satisfied with the cleanliness and/or execution of chores? 
+6. How might we create an easy and quick method for flatmates to assign and swap chores? 
+7. How might we help flatmates remember their assigned tasks and upcoming payments? 
+8. How might we ensure that expenses are divided fairly and paid on time?
+
+### Brainstorming
+
+We then used the "How might we" statements to brainstorm ideas for features that our app could have. We used the brainstorming approach **B**, where everyone first brainstorms individually, then shares their ideas with the group, which then reiterates on the ideas and builds up on them. We did the raw brainstorming and the clustering into ideas at once, using virtual Post-it notes.
+
 ## Ideation
 
     TODO

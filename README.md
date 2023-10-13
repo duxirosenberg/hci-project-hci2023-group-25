@@ -215,6 +215,8 @@ Based on the insights from the interviews and the desk research, we created the 
 
 We then used the "How might we" statements to brainstorm ideas for features that our app could have. We used the brainstorming approach **B**, where everyone first brainstorms individually, then shares their ideas with the group, which then reiterates on the ideas and builds up on them. We did the raw brainstorming and the clustering into ideas at once, using virtual Post-it notes.
 
+[![Screenshot of our brainstorming board](img/brainstorming.jpg)](https://miro.com/app/board/uXjVNcMdmHc=/?share_link_id=492596937418)
+
 ## Ideation
 
     TODO

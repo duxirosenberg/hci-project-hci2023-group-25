@@ -185,18 +185,18 @@ The general sentiment among users seems to be that one app for everything is pre
 A "perfect" shared flat managment app should therefore provide a range of features, but also has to be very good at it, which is hard to achieve. Furthermore it is important, that it is easy to onboard new users, as it is hard to convince everyone to install a new app. Also, the app should be easy to use for simple tasks; many features may quickly become overwhelming.
 
 In the most important aspects, expense splitting and chore management, the featureset of most apps is pretty similar, whether they are specialised or not. Some of the most important features are:
- * **All categories**
+* **All categories**
   * Easy onboarding of new users
   * One shared group where everyone can see everything
- * **Expense splitting**
+* **Expense splitting**
   * Expense logging, with the possibility to add a picture of the receipt
   * Expense splitting, with the possibility to split unevenly
   * Built-in payment solutions, like connected PayPal or bank accounts
- * **Chore management**
-   * Adding shared chores
-   * Assigning chores to specific people
-   * Setting deadlines and reminders
-   * Have a (personlaized or general) list of open tasks
+* **Chore management**
+  * Adding shared chores
+  * Assigning chores to specific people
+  * Setting deadlines and reminders
+  * Have a (personlaized or general) list of open tasks
 
 ### "How might we" statements
 

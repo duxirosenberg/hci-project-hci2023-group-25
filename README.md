@@ -217,6 +217,49 @@ We then used the "How might we" statements to brainstorm ideas for features that
 
 [![Screenshot of our brainstorming board](img/brainstorming.jpg)](https://miro.com/app/board/uXjVNcMdmHc=/?share_link_id=492596937418)
 
+## Week 05: Storyboards, Low-fidelity Prototyping
+This week, we extracted three ideas from the previous week's brainstorming session which we wanted to pursue and develop into a solution. To really illustrate how we envision that our ideas will improve living in a shared flat, we created a storyboard for those three, each of which features a common problem according to our previous research, and how the idea counteracts that problem. Then, for two of the ideas, we created a low-fi paper prototype, modeling possible implementations of those ideas. The purpose of these is to be able to give a demonstration of how a final, high-quality implementation could look and feel, without having to invest much time and money.
+
+### Idea A: Feedback System
+In our needfinding process, we found that many people are bothered by roommates not doing their chores properly or at all. But as identifying the culprit and then confronting them about it is unpleasant for many people, we came up with the idea of a sort of digital notice board, where the user can anonymously give feedback to a specific or all roommates. In the case of negative feedback, this will hopefully encourage the culprit to improve in both the short and long term, but the feature can also be used to highlight good behaviour.
+
+<details> 
+
+#### Storyboard
+![Storyboard A](Deliverables/LowFiPrototyping/IdeaA/Storyboard.png)
+
+#### Paper Prototype
+More pictures can be found [here](Deliverables/LowFiPrototyping/IdeaA/Paper.pdf).
+
+![Prototype A](Deliverables/LowFiPrototyping/IdeaA/Prototype.png)
+
+</details>
+
+### Idea B: Shopping List
+Everyone living in a shared flat has probably at some point run out of something, be it milk, bread, or even something such as toilet paper. To avoid such things from happening or stuff being bought multiple times, we prototyped a simple shopping list. To circumvent two people going shopping at the same time, we added an option to indicate when someone has agreed to go shopping later that day, or also if someone said that they currently can't. Then, the person responsible can either cross off the items one by one as they put the items into their basket or after they already left the shop. 
+
+<details>
+
+#### Storyboard
+![Storyboard B](Deliverables/LowFiPrototyping/IdeaB/Storyboard.png)
+
+#### Paper Prototype
+More pictures can be found [here](Deliverables/LowFiPrototyping/IdeaB/Paper/).
+
+![Prototype B](Deliverables/LowFiPrototyping/IdeaB/Paper/4_filled_list.jpg)
+
+</details>
+
+### Idea C: Chore Manager
+Without some sort of chore plan, sooner or later a person is likely to be the one to pull most of the weight in the flat, or a chore is left undone for a long time. To fix this, we prototyped a chore manager, where the people living in the flat can specify together which chores need to be done and how often. These are then distributed fairly amongst the flatmates, and displayed in a nice chore plan, indicating whose turn it is and when they are due.
+
+<details>
+
+#### Storyboard
+![Storyboard C](Deliverables/LowFiPrototyping/IdeaC/Storyboard.png)
+
+</details>
+
 ## Ideation
 
     TODO

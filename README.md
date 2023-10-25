@@ -260,6 +260,24 @@ Without some sort of chore plan, sooner or later a person is likely to be the on
 
 </details>
 
+## Week 05: Mid-fidelity prototyping
+This week we turned our focus towards building two mid-fidelity prototypes from our previous findings. Analyzing the storyboards that we created and taking into account of how our prototypes felt and could be implemented, we realized that we should make a change of course. Instead of pursuing our idea of a feedback system for the flat-members, we decided it that we should focus on the shopping list feature and the chore manager. The rationale behind this is the fact that we want to be able to focus on the users interaction and experience of the features. For the feedback system we would have to focus too much on the functionality. This realization came as we thought it would be more interesting to create a feedback system and decided to build a low-fi prototype for it and realized that making it work intuitively could become quite a challenge in terms of functionality. So we proceeded with designing possible user interfaces for the shopping list and the chore manager. After iterating over several designs using figma, we ended up with two ... designs.
+
+### Mid-fi prototype Idea B: Shopping List
+
+#### Motivation
+
+#### Walk-through
+
+### Idea C: Chore Manager
+
+#### Motivation
+
+#### Walk-through
+
+
+####
+
 ## Ideation
 
     TODO

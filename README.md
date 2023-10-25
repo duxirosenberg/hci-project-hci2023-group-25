@@ -272,6 +272,9 @@ In the past weeks we identified user needs, users and gained insights, followed 
 #### Walk-through
 The broad application has you navigating through login menu, which can be followed by creating an account. Then you have the possibility to join a flat group or create your own (we weren't sure if we should allow the option to be part of several flats). Within the app you can then navigate to the grocery menu. There awaits you a list of items and food you and your flat-members need. These could be ordered by categories in the backend. There is a priority switch-button which suggests urgency by allocating the item further up in its category. The big plus of our shopping list allows you to add a new item. In the add new item menu you can specify a new product with its name, configure its quantity and set if its urgent. This is convenient as you can plan buying soap before its empty and allow users to buy it when its on sale. There is also recommendations of frequently bought items. Of course there is also the possibility to edit existing entries by clicking on them.
 <details>
+
+  #### Design
+  ![Storyboard C](Deliverables/LowFiPrototyping/IdeaC/Storyboard.png)
 ![Shopping List](Deliverables/MidFiPrototyping/Prototype%20A%20-%20Shopping%20List/Create_Account_Screen.png)
 </details>
 

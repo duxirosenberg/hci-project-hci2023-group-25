@@ -295,7 +295,7 @@ Everyone who has ever lived with someone has had the expectation of splitting th
 
 #### Walk-through
 
-[![Video](hci-project-hci2023-group-25/Deliverables/MidFiPrototyping/Prototype C - Chore Manager/Thumbnail.png)](https://youtu.be/vOaeMYIBKSs)
+[![Video](https://img.youtube.com/vi/vOaeMYIBKSs/hqdefault.jpg)](https://youtu.be/vOaeMYIBKSs)
 
 
 

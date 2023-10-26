@@ -288,7 +288,7 @@ The broad application has you navigating through login menu, which can be follow
 ![Shopping List](Deliverables/MidFiPrototyping/Prototype%20A%20-%20Shopping%20List/Editing_Screen.png)
 </details>
 
-### Idea C: Chore Manager
+### Mid-fi prototype Idea C: Chore Manager
 
 #### Motivation
 Everyone who has ever lived with someone has had the expectation of splitting the work around the house, flat or apartment more or less fairly. Without going further into the notion of fairness, the usual way to go about this is to make a list of tasks that need to be done and then distribute them across the flat-members. This quickly poses challenges on the living community. Does everyone do their task on time? Are some tasks way more time-consuming than others? How to keep track of who did, does and is going to do which task? We've established this strong need (need for a chore manager) for a solution in the past week of our research and analysis (also described in the motivation for the shopping list). We find it important to design a simple, inviting and exciting way of tackling these challenges as it builds the foundation of any shared-flat application just like a shopping list.  

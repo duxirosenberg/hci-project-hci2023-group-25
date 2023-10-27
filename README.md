@@ -270,7 +270,7 @@ In the past weeks we identified user needs, users and gained insights, followed 
 
 
 #### Walk-through
-The broad application has you navigating through login menu, which can be followed by creating an account. Then you have the possibility to join a flat group or create your own (we weren't sure if we should allow the option to be part of several flats). Within the app you can then navigate to the grocery menu. There awaits you a list of items and food you and your flat-members need. These could be ordered by categories in the backend. There is a priority switch-button which suggests urgency by allocating the item further up in its category. The big plus of our shopping list allows you to add a new item. In the add new item menu you can specify a new product with its name, configure its quantity and set if its urgent. This is convenient as you can plan buying soap before its empty and allow users to buy it when its on sale. There is also recommendations of frequently bought items. Of course there is also the possibility to edit existing entries by clicking on them. For a video walk-through click [here](Deliverables/MidFiPrototyping/Prototype%20A%20-%20Shopping%20List/Shopping_List_Management-720p.mov)
+The broad application has you navigating through login menu, which can be followed by creating an account. Then you have the possibility to join a flat group or create your own (we weren't sure if we should allow the option to be part of several flats). Within the app you can then navigate to the grocery menu. There awaits you a list of items and food you and your flat-members need. These could be ordered by categories in the backend. There is a priority switch-button which suggests urgency by allocating the item further up in its category. The big plus of our shopping list allows you to add a new item. In the add new item menu you can specify a new product with its name, configure its quantity and set if its urgent. This is convenient as you can plan buying soap before its empty and allow users to buy it when its on sale. There is also recommendations of frequently bought items. Of course there is also the possibility to edit existing entries by clicking on them. For a video walk-through click [here].(Deliverables/MidFiPrototyping/Prototype%20A%20-%20Shopping%20List/Shopping_List_Management-720p.mov)
 <details>
 
 #### Design
@@ -294,10 +294,19 @@ The broad application has you navigating through login menu, which can be follow
 Everyone who has ever lived with someone has had the expectation of splitting the work around the house, flat or apartment more or less fairly. Without going further into the notion of fairness, the usual way to go about this is to make a list of tasks that need to be done and then distribute them across the flat-members. This quickly poses challenges on the living community. Does everyone do their task on time? Are some tasks way more time-consuming than others? How to keep track of who did, does and is going to do which task? We've established this strong need (need for a chore manager) for a solution in the past week of our research and analysis (also described in the motivation for the shopping list). We find it important to design a simple, inviting and exciting way of tackling these challenges as it builds the foundation of any shared-flat application just like a shopping list.  
 
 #### Walk-through
-
 [![Video](https://img.youtube.com/vi/vOaeMYIBKSs/hqdefault.jpg)](https://youtu.be/vOaeMYIBKSs)
 
-
+#### Design
+##### Assigned To View
+![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/Assigned_To_Screen.png)
+##### Due date View
+![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/Due_Date_Screen.png)
+##### Room view
+![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/Room_Screen.png)
+##### Detailed info per task
+![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/Detailed_Info_Screen.png)
+##### Add new task
+![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/New_Chore_Screen.png)
 
 ####
 

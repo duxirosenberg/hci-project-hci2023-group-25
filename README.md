@@ -295,7 +295,8 @@ Everyone who has ever lived with someone has had the expectation of splitting th
 
 #### Walk-through
 [![Video](https://img.youtube.com/vi/vOaeMYIBKSs/hqdefault.jpg)](https://youtu.be/vOaeMYIBKSs)
-
+<details>
+  
 #### Design
 ##### Assigned To View
 ![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/Assigned_To_Screen.png)
@@ -307,8 +308,7 @@ Everyone who has ever lived with someone has had the expectation of splitting th
 ![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/Detailed_Info_Screen.png)
 ##### Add new task
 ![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/New_Chore_Screen.png)
-
-####
+</details>
 
 ## Ideation
 

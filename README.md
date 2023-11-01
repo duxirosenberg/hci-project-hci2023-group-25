@@ -312,6 +312,8 @@ Everyone who has ever lived with someone has had the expectation of splitting th
 
 ## Week 06: Mid-fidelity Prototype Feedback
 
+During this week, our group was divided into two teams: one team provided feedback to other groups, while the other team presented our two prototypes to these groups. Specifically, Josh, Nic, and Simon had the opportunity to test the prototypes of groups 14, 20, and 10 respectively. Meanwhile, Douglas and Jannek took on the role of presenting our prototypes to groups 26, 31, 32, and a Teaching Assistant. As a result of these interactions, we gathered valuable feedback that we'd like to share with you:
+
 ### Login Screen:
 - Generally positive feedback; no major issues highlighted.
 - The button to create a new flat was not clearly visible and should be displayed more centrally.
@@ -341,7 +343,7 @@ Everyone who has ever lived with someone has had the expectation of splitting th
 
 ### Bridging to the Next Iteration
 
-From the feedback we received, there's a clear indication that both the shopping list and the Task/Chore Manager have areas for improvement. Yet, instead of spreading our efforts across both, we've chosen to focus exclusively on the Task/Chore Manager for the next iteration. This decision isn't about merely creating a functional app; it's about striving for perfection in one core segment of our application first.
+From the feedback we received, there's a clear indication that both the shopping list and the Task/Chore Manager have areas for improvement. Yet, instead of spreading our efforts across both, we've chosen to focus exclusively on the Task/Chore Manager for the next iteration. This decision isn't about merely creating a functional app; it's about striving for perfection in one core segment of our application first. Further we also gathered the valuable insight from each of the participants that the Chore Manager is the much more essential feature for managing a shared flat. Hence we want to focus and continue with the Chore Manager in the High Fidelity prototyping stage.
 
 The feedback spotlighted several nuances within the Task/Chore Manager, from the clarity of icons to the intuitiveness of its features. By directing our energy here, we can delve deep into refining the user experience, ensuring every facet is honed to perfection. This focused approach aligns with our goal to apply and embody the UI/UX concepts from the lecture to the fullest. Ultimately, our vision is for an app that is not only fully functional but also optimal in every aspect. We aim for every feature and detail to be well thought out and tailored to the user's needs, ensuring a seamless and beneficial experience.
 

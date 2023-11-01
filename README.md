@@ -310,6 +310,66 @@ Everyone who has ever lived with someone has had the expectation of splitting th
 ![Chore Manager](Deliverables/MidFiPrototyping/Prototype%20C%20-%20Chore%20Manager/New_Chore_Screen.png)
 </details>
 
+## Week 06: Mid-fidelity Prototype Feedback
+
+### Login Screen:
+- Generally positive feedback; no major issues highlighted.
+- The button to create a new flat was not clearly visible and should be displayed more centrally.
+- Suggestion to add an overall overview screen showing flat group members.
+
+### Shopping List:
+- Confusion about the "!" symbol.
+- The location for adding items is not intuitive; the top bar resembles a button.
+- Categories appear button-like, suggesting a need for UI modifications.
+- Button design for marking items as bought needs improvement.
+- Suggestion to add an onboarding tutorial to explain the "!" symbol.
+- Praise for the automatic category feature and the recommendation feature.
+
+### Task/Chore Manager:
+- The "Bell" icon is not clear in its functionality, specifically that it sends notifications to the assignee.
+- The collapsing feature lacks intuitive design.
+- Suggestions for enabling changes in chore assignment policies (e.g., from round-robin to fixed person assignment).
+- Proposal to introduce default chore recommendations during the setup phase to ease user onboarding and improve initial app understanding.
+- Users initially ignored the 3-column filter buttons; suggested combining them for better sorting.
+- Feedback on the visibility of other people's chores.
+- Difficulty recognizing the button design for marking tasks as done; liked the notification feature.
+- Suggestion to add visual indicators for collapsible rooms and bubbles for rooms with assigned chores.
+
+### Other Comments:
+- Emphasis on the iterative process of brainstorming, prototyping, and other stages of development to demonstrate evolution and growth of the project.
+- Appreciation for the automatic categorization feature.
+
+### Bridging to the Next Iteration
+
+From the feedback we received, there's a clear indication that both the shopping list and the Task/Chore Manager have areas for improvement. Yet, instead of spreading our efforts across both, we've chosen to focus exclusively on the Task/Chore Manager for the next iteration. This decision isn't about merely creating a functional app; it's about striving for perfection in one core segment of our application first.
+
+The feedback spotlighted several nuances within the Task/Chore Manager, from the clarity of icons to the intuitiveness of its features. By directing our energy here, we can delve deep into refining the user experience, ensuring every facet is honed to perfection. This focused approach aligns with our goal to apply and embody the UI/UX concepts from the lecture to the fullest. Ultimately, our vision is for an app that is not only fully functional but also optimal in every aspect. We aim for every feature and detail to be well thought out and tailored to the user's needs, ensuring a seamless and beneficial experience.
+
+We've chosen Flutter for our high-level prototype for a number of reasons:
+
+1. **Flexibility and Customization:** Flutter allows us to customize every pixel on the screen, providing us the liberty to implement the specific UI changes suggested in the feedback.
+2. **Rapid Iteration:** With its hot reload feature, Flutter enables faster iterations, making it easier to experiment with different UI/UX solutions.
+3. **Consistent Experience:** As a cross-platform framework, Flutter ensures that our prototype maintains consistency across different devices, allowing us to gather feedback from a wider range of users.
+
+Based on the new feedback, there is a clear need to further improve both the shopping list and the Task/Chore Manager. Consider focusing on the following areas for the next iteration:
+
+### Shopping List:
+- Improve the "!" symbol's clarity and provide an onboarding tutorial for this feature.
+- Enhance the button design for marking items as done.
+- Continue to explore automatic categorization features.
+- Highlight user-friendly features like item recommendations and visibility of item additions.
+
+### Task/Chore Manager:
+- Clarify the meaning of icons like the bell and button design for marking tasks as done.
+- Consider combining filter options to provide more user-friendly sorting.
+- Explore options to reduce the visibility of other people's chores.
+- Enhance the notification feature's visibility and usability.
+- Add visual indicators for collapsible rooms and bubbles next to rooms with assigned chores to improve the overview.
+
+Overall, the feedback highlights the importance of clear onboarding and intuitive design in both app prototypes, with an emphasis on user education and feature visibility.
+
+
+
 ## Ideation
 
     TODO

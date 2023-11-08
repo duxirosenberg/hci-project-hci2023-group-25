@@ -402,6 +402,6 @@ There will be no effect of using variant B over A on ...
 4. Lastly we'll also collect qualitative feedback by simply taking notes and talking with the participants at the end of the study.
 
 #### Experiment procedure
-The participants will be asked to familiarise themselves with the app by adding, searching and reading a small number of chores from the app. We'll change the app session, such that participants can't learn the exact position of tasks and let them search and analyse chores in each variant respectively. Details can be read in the [Study Protocol](Deliverables/Study/Protocol.pdf)
+The participants will be asked to familiarise themselves with the app by adding, searching and reading a small number of chores from the app. We'll change the app session, such that participants can't learn the exact position of tasks and let them search and analyse chores in each variant respectively. Details can be read in the [Study Protocol](Deliverables/Study/'Preliminary Study Protocol'.pdf)
 
 Overall the user study should give us insight about how efficiently and joyfully participants can work with our app. Carving the way for another iteration of our app.

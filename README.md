@@ -370,28 +370,38 @@ Based on the new feedback, there is a clear need to further improve both the sho
 
 Overall, the feedback highlights the importance of clear onboarding and intuitive design in both app prototypes, with an emphasis on user education and feature visibility.
 
+## Week 07: User Study and Hi-fidelity prototype
+During this week our team planned how we want to conduct our user study and further brainstormed about our Hi-fidelity prototype. As we've decided last week we'll focus on the chore/task-manager part of our app and develop two prototype variants A, B accordingly. As discussed with a teaching assistant during the exercise session we've focused on finding a sweet spot between creating enough variation between prototypes, to conduct an interesting user study, but not too much, to keep the independent variables clear.
 
+### Prototype variants
+#### Variant A
+Prototype variant A matches what we've done in the mid-fidelity prototype. A task overview which lets us switch between different modes to structure and sort tasks. In detail: structuring tasks by due date, by assignee and by room. Tasks are shown as a list of tasks, and each task can be expanded by pressing on it to reveal more details.
 
-## Ideation
+#### Variant B
+For prototype B we focus more specifically on the user. When opening the app, the first thing you see are all tasks that are assigned to you with more initial information provided as in the first prototype, whatever was only visible in A by expanding the task is visible already in B. When accessing all items, not only the ones assigned to the respective user, a mode switch is required to a different menu. This menu will list all tasks similarly as prototype A did, with the need to expand the tasks for more information.
 
-    TODO
+### Description of the user study
+#### Goal
+The goal of the user study is now to examine with which variant participants find tasks and information about them quicker, make less errors when reading the data and ultimately which variant they prefer using.
 
-## Evaluation
+One thing we noticed from the peer-feedback last week was, that not many people utilised the mode switch of variant A, inspiring us to try something new for structuring the tasks presented. Users are mainly interested in finding out what they have to do, which is how we came up with variant B as it is now.
 
-    TODO
+We believe that the iteration from A to B is substantial enough to see usability improvements, both in the time needed to navigate the app and in the errors made when reading task descriptions.
 
-## Low-fidelity Prototype
+#### Hypotheses
+There will be no effect of using variant B over A on ...
+1. the time needed to see which of my tasks are due in the next days.
+2. the time needed to read the information of any task (mine, or of someone else).
+3. reading the full and correct information of any task.
+4. the perceived ease of use from the users perspective.
 
-    TODO
+#### Data Collection
+1. We'll collect anonymized participant data, focusing on their previous experience with flat sharing apps and their current living situation.
+2. We'll collect subjective rating
+3. We'll collect performance data by capturing the screen while the users navigate the app. The performance data consists of the time needed to finish a certain task and how well they read the information on the screen. The latter will be measured by hiding messages in the task description and evaluating if they picked up on the messages afterwards.
+4. Lastly we'll also collect qualitative feedback by simply taking notes and talking with the participants at the end of the study.
 
-## Mid-fidelity Prototype
+#### Experiment procedure
+The participants will be asked to familiarise themselves with the app by adding, searching and reading a small number of chores from the app. We'll change the app session, such that participants can't learn the exact position of tasks and let them search and analyse chores in each variant respectively. Details can be read in the [Study Protocol](Deliverables/Study/Protocol.pdf)
 
-    TODO
-
-## Hi-fidelity Prototype
-
-    TODO
-
-## User study
-
-    TODO
+Overall the user study should give us insight about how efficiently and joyfully participants can work with our app. Carving the way for another iteration of our app.

@@ -1,14 +1,23 @@
 class Chore {
   final String name;
-  final String assignee;
+  final List<String> assignees;
+  int currentAssignee; // index of the current assignee
   final String room;
-  final DateTime dueDate; // probably need to replace with schedule
+  DateTime dueDate; // probably need to replace with schedule
+  final int frequency; // days before chore should be done again
 
-  Chore(
-      {required this.name,
-      required this.assignee,
-      required this.dueDate,
-      required this.room});
+  Chore({
+    required this.assignees,
+    required this.currentAssignee,
+    required this.name,
+    required this.dueDate,
+    required this.frequency,
+    required this.room,
+  });
+
+  /*String getDateString() {
+
+  }*/
 }
 
 class ChoreGroup {

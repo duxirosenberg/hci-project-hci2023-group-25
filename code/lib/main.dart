@@ -105,12 +105,44 @@ class ChoreTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(chore.name),
-      subtitle: Text("Due by: ${chore.dueDate}"),
+      subtitle: Text("Due ${chore.getDueString()}"),
       trailing: IconButton(
-          onPressed: () {
-            context.read<DataProvider>().markDone(chore);
-          },
-          icon: const Icon(Icons.check)),
+        onPressed: () {
+          context.read<DataProvider>().markDone(chore);
+        },
+        icon: const Icon(Icons.check),
+      ),
+      onTap: () => showDialog(
+        context: context,
+        builder: (context) {
+          return ChoreDialog(
+            chore: chore,
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ChoreDialog extends StatelessWidget {
+  final Chore chore;
+  const ChoreDialog({super.key, required this.chore});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(chore.name),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Assigned to: ${chore.assignees[chore.currentAssignee]}"),
+          Text("Due by: ${chore.getDueString()}"),
+          Text("Room: ${chore.room}"),
+          Text("Notes: ${chore.notes}"),
+          Text(chore.room)
+        ],
+      ),
     );
   }
 }

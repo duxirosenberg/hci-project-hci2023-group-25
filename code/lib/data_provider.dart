@@ -8,9 +8,7 @@ class DataProvider with ChangeNotifier {
   List<User> users = InitialData.users;
 
   void markDone(Chore chore) {
-    chore.currentAssignee =
-        (chore.currentAssignee + 1) % chore.assignees.length;
-    chore.dueDate = chore.dueDate.add(Duration(days: chore.frequency));
+    chore.markDone();
     notifyListeners();
   }
 

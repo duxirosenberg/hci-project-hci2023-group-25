@@ -45,6 +45,22 @@ class MyHomePage extends StatelessWidget {
             Tab(text: "Assigned to"),
             Tab(text: "Due Date"),
           ]),
+          actions: [
+            PopupMenuButton(
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    child: const Text("Switch A/B"),
+                    onTap: () => context.read<DataProvider>().switchMode(),
+                  ),
+                  PopupMenuItem(
+                    child: const Text("Reset App"),
+                    onTap: () => context.read<DataProvider>().resetApp(),
+                  ),
+                ];
+              },
+            )
+          ],
         ),
         body: Consumer<DataProvider>(
           builder: (context, data, child) {
@@ -56,6 +72,29 @@ class MyHomePage extends StatelessWidget {
               ],
             );
           },
+        ),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {}, child: const Icon(Icons.add)),
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: 1,
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.message),
+              label: "Messages",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.checklist),
+              label: "Chores",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.shopping_basket),
+              label: "Shopping",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.monetization_on),
+              label: "Finances",
+            ),
+          ],
         ),
       ),
     );
@@ -106,11 +145,22 @@ class ChoreTile extends StatelessWidget {
     return ListTile(
       title: Text(chore.name),
       subtitle: Text("Due ${chore.getDueString()}"),
-      trailing: IconButton(
-        onPressed: () {
-          context.read<DataProvider>().markDone(chore);
-        },
-        icon: const Icon(Icons.check),
+      leading: Checkbox(
+        value: false,
+        onChanged: (value) {},
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          UserDisplay(
+              small: true, user: chore.assignees[chore.currentAssignee]),
+          /*IconButton(
+            onPressed: () {
+              context.read<DataProvider>().markDone(chore);
+            },
+            icon: const Icon(Icons.check),
+          ),*/
+        ],
       ),
       onTap: () => showDialog(
         context: context,
@@ -131,18 +181,64 @@ class ChoreDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(chore.name),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      scrollable: true,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("Assigned to: ${chore.assignees[chore.currentAssignee]}"),
-          Text("Due by: ${chore.getDueString()}"),
-          Text("Room: ${chore.room}"),
-          Text("Notes: ${chore.notes}"),
-          Text(chore.room)
+          Text(chore.name),
+          UserDisplay(
+              user: chore.assignees[chore.currentAssignee], small: false),
         ],
       ),
+      content: SizedBox(
+        width: 800,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Text("Assigned to: ${chore.assignees[chore.currentAssignee]}"),
+            Text("Due ${chore.getDueString()}"),
+            Text("Room: ${chore.room}"),
+            Text("Notes: ${chore.notes}"),
+            Text(chore.room)
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ChoreEditDialog extends StatelessWidget {
+  const ChoreEditDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class UserDisplay extends StatelessWidget {
+  final bool small;
+  final String user;
+  const UserDisplay({super.key, required this.user, required this.small});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        CircleAvatar(
+          child: Text(user.substring(0, 1)),
+        ),
+        SizedBox(
+          width: 8,
+        ),
+        if (!small)
+          Text(
+            user,
+            style: TextStyle(fontSize: 14),
+          ),
+      ],
     );
   }
 }

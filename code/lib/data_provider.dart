@@ -3,9 +3,27 @@ import 'package:chore_manager/initial_data.dart';
 import 'package:flutter/material.dart';
 
 class DataProvider with ChangeNotifier {
-  List<Chore> chores = InitialData.chores;
-  List<Room> rooms = InitialData.rooms;
-  List<User> users = InitialData.users;
+  bool altMode = false; // altMode is B Type
+
+  void switchMode() {
+    altMode = !altMode;
+    notifyListeners();
+  }
+
+  void resetApp() {
+    chores = InitialData().getChores();
+    rooms = InitialData().getRooms();
+    users = InitialData().getUsers();
+    notifyListeners();
+  }
+
+  late List<Chore> chores;
+  late List<Room> rooms;
+  late List<User> users;
+
+  DataProvider() {
+    resetApp();
+  }
 
   void markDone(Chore chore) {
     chore.markDone();

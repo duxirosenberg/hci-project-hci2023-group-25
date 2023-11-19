@@ -20,15 +20,14 @@ class Chore {
   });
 
   String getDueString() {
-    final dayDiff = dueDate
-        .difference(DateUtils.today())
-        .inDays; // negative -> dueDate has passed
+    final dayDiff = daysUntilDue();
+
     if (dayDiff == 0) {
-      return "Today";
+      return "today";
     } else if (dayDiff == 1) {
-      return "Tomorrow";
+      return "tomorrow";
     } else if (dayDiff == -1) {
-      return "Yesterday";
+      return "yesterday";
     } else if (dayDiff < 0) {
       return "${dayDiff.abs()} days ago";
     } else {
@@ -39,6 +38,14 @@ class Chore {
   void markDone() {
     currentAssignee = (currentAssignee + 1) % assignees.length;
     dueDate = DateUtils.today().add(Duration(days: frequency));
+  }
+
+  bool get assignedToUser {
+    return currentAssignee == 0;
+  }
+
+  int daysUntilDue() {
+    return dueDate.difference(DateUtils.today()).inDays;
   }
 }
 

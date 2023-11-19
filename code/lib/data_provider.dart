@@ -14,12 +14,14 @@ class DataProvider with ChangeNotifier {
     chores = InitialData().getChores();
     rooms = InitialData().getRooms();
     users = InitialData().getUsers();
+    dues = InitialData().getDues();
     notifyListeners();
   }
 
   late List<Chore> chores;
   late List<Room> rooms;
   late List<User> users;
+  late List<Due> dues;
 
   DataProvider() {
     resetApp();
@@ -60,7 +62,37 @@ class DataProvider with ChangeNotifier {
             .where(
                 (chore) => chore.assignees[chore.currentAssignee] == user.name)
             .toList()
+          ..sort(
+            (a, b) => a.dueDate.compareTo(b.dueDate),
+          ),
       ));
+    }
+    return res;
+  }
+
+  GroupedChores get sortByDueDate {
+    final GroupedChores res = [];
+    res.add((dues[0], [])); // overdue
+    res.add((dues[1], [])); // due today
+    res.add((dues[2], [])); // upcoming
+
+    for (final chore in chores) {
+      int index;
+      if (chore.daysUntilDue() < 0) {
+        index = 0;
+      } else if (chore.daysUntilDue() == 0) {
+        index = 1;
+      } else {
+        index = 2;
+      }
+
+      res[index].$2.add(chore);
+    }
+
+    for (final group in res) {
+      group.$2.sort(
+        (a, b) => a.dueDate.compareTo(b.dueDate),
+      );
     }
     return res;
   }

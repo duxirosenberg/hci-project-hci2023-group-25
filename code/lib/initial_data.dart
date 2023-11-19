@@ -20,13 +20,21 @@ class InitialData {
     ];
   }
 
+  List<Due> getDues() {
+    return [
+      Due("Overdue"),
+      Due("Due Today"),
+      Due("Upcoming"),
+    ];
+  }
+
   List<Chore> getChores() {
     return [
       Chore(
         name: "Clean the fridge",
         room: "Kitchen",
         assignees: ["You", "Günther"],
-        currentAssignee: 1,
+        currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: 1)),
         frequency: 30,
         notes:
@@ -35,7 +43,7 @@ class InitialData {
       Chore(
         name: "Wipe Floor",
         room: "Kitchen",
-        assignees: ["You"],
+        assignees: ["You", "Günther", "Sebastian"],
         currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: 3)),
         frequency: 14,
@@ -44,7 +52,7 @@ class InitialData {
       Chore(
         name: "Clean Mirror & Sink",
         room: "Bathroom",
-        assignees: ["You"],
+        assignees: ["You", "Günther", "Sebastian"],
         currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: 6)),
         frequency: 7,
@@ -53,7 +61,7 @@ class InitialData {
       Chore(
         name: "Bathtub Deep Clean",
         room: "Bathroom",
-        assignees: ["You"],
+        assignees: ["You", "Günther", "Sebastian"],
         currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: 7)),
         frequency: 60,
@@ -62,14 +70,14 @@ class InitialData {
       Chore(
         name: "Take out trash",
         room: "Kitchen",
-        assignees: ["You"],
+        assignees: ["You", "Günther", "Sebastian"],
         currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: -2)),
         frequency: 7,
         notes: null,
       ),
       Chore(
-        assignees: ["You"],
+        assignees: ["You", "Günther", "Sebastian"],
         currentAssignee: 0,
         name: "Vacuum",
         dueDate: DateUtils.today(),

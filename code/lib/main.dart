@@ -68,7 +68,7 @@ class MyHomePage extends StatelessWidget {
               children: [
                 ChoreList(chores: data.sortByRoom),
                 ChoreList(chores: data.sortByAssignee),
-                Container(),
+                ChoreList(chores: data.sortByDueDate),
               ],
             );
           },
@@ -108,6 +108,7 @@ class ChoreList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: ExpansionPanelList(
+        // maybe replace with ExpansionTiles
         expansionCallback: (panelIndex, isExpanded) {
           context
               .read<DataProvider>()
@@ -138,6 +139,7 @@ class ChoreList extends StatelessWidget {
 
 class ChoreTile extends StatelessWidget {
   final Chore chore;
+
   const ChoreTile({super.key, required this.chore});
 
   @override
@@ -145,10 +147,18 @@ class ChoreTile extends StatelessWidget {
     return ListTile(
       title: Text(chore.name),
       subtitle: Text("Due ${chore.getDueString()}"),
-      leading: Checkbox(
-        value: false,
-        onChanged: (value) {},
-      ),
+      leading: chore.assignedToUser
+          ? Checkbox(
+              value: false,
+              onChanged: (value) {
+                context.read<DataProvider>().markDone(chore);
+              },
+            )
+          : IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.notifications),
+              padding: EdgeInsets.zero,
+            ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -199,11 +209,23 @@ class ChoreDialog extends StatelessWidget {
             // Text("Assigned to: ${chore.assignees[chore.currentAssignee]}"),
             Text("Due ${chore.getDueString()}"),
             Text("Room: ${chore.room}"),
+            Text(chore.room),
             Text("Notes: ${chore.notes}"),
-            Text(chore.room)
           ],
         ),
       ),
+      actionsAlignment: MainAxisAlignment.center,
+      actions: [
+        chore.assignedToUser
+            ? OutlinedButton(
+                onPressed: () {
+                  context.read<DataProvider>().markDone(chore);
+                },
+                child: const Text("Mark as completed"),
+              )
+            : OutlinedButton(
+                onPressed: () {}, child: const Text("Send a reminder")),
+      ],
     );
   }
 }

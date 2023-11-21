@@ -1,5 +1,5 @@
 import 'package:chore_manager/data/data_provider.dart';
-import 'package:chore_manager/widgets/chore_list.dart';
+import 'package:chore_manager/widgets/grouped_chore_list.dart';
 import 'package:chore_manager/widgets/popup_actions.dart';
 import 'package:flutter/material.dart';
 
@@ -24,9 +24,9 @@ class A extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            ChoreList(chores: data.sortByRoom),
-            ChoreList(chores: data.sortByAssignee),
-            ChoreList(chores: data.sortByDueDate),
+            GroupedChoreList(chores: data.sortByRoom),
+            GroupedChoreList(chores: data.sortByAssignee),
+            GroupedChoreList(chores: data.sortByDueDate),
           ],
         ),
         floatingActionButton: FloatingActionButton(

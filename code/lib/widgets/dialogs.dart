@@ -1,5 +1,5 @@
 import 'package:chore_manager/core/classes.dart';
-import 'package:chore_manager/widgets/chore_list.dart';
+import 'package:chore_manager/widgets/chore_tile.dart';
 import 'package:flutter/material.dart';
 
 class ChoreDialog extends StatelessWidget {

@@ -4,42 +4,6 @@ import 'package:chore_manager/widgets/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ChoreList extends StatelessWidget {
-  final GroupedChores chores;
-  const ChoreList({super.key, required this.chores});
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: ExpansionPanelList(
-        // maybe replace with ExpansionTiles
-        expansionCallback: (panelIndex, isExpanded) {
-          context
-              .read<DataProvider>()
-              .setExpanded(chores[panelIndex].$1, isExpanded);
-        },
-        children: chores.map((entry) {
-          return ExpansionPanel(
-              isExpanded: entry.$1.expanded,
-              canTapOnHeader: true,
-              headerBuilder: (context, isExpanded) {
-                return ListTile(
-                  title: Text(entry.$1.name),
-                );
-              },
-              body: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: entry.$2.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return ChoreTile(chore: entry.$2[index]);
-                },
-              ));
-        }).toList(),
-      ),
-    );
-  }
-}
-
 class ChoreTile extends StatelessWidget {
   final Chore chore;
 

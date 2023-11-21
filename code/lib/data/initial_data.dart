@@ -1,5 +1,5 @@
-import 'package:chore_manager/classes.dart';
-import 'package:chore_manager/utils.dart';
+import 'package:chore_manager/core/classes.dart';
+import 'package:chore_manager/core/utils.dart';
 
 // store expanded state in the grouped by attribute?
 

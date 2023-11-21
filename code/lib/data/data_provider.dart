@@ -1,5 +1,5 @@
-import 'package:chore_manager/classes.dart';
-import 'package:chore_manager/initial_data.dart';
+import 'package:chore_manager/core/classes.dart';
+import 'package:chore_manager/data/initial_data.dart';
 import 'package:flutter/material.dart';
 
 class DataProvider with ChangeNotifier {

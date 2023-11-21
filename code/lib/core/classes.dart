@@ -1,4 +1,4 @@
-import 'package:chore_manager/utils.dart';
+import 'package:chore_manager/core/utils.dart';
 
 class Chore {
   final String name;

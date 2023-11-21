@@ -33,7 +33,7 @@ class InitialData {
       Chore(
         name: "Clean the fridge",
         room: "Kitchen",
-        assignees: ["You", "Günther"],
+        assignees: ["You"],
         currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: 1)),
         frequency: 30,
@@ -44,7 +44,7 @@ class InitialData {
         name: "Wipe Floor",
         room: "Kitchen",
         assignees: ["You", "Günther", "Sebastian"],
-        currentAssignee: 0,
+        currentAssignee: 1,
         dueDate: DateUtils.today().add(const Duration(days: 3)),
         frequency: 14,
         notes: null,

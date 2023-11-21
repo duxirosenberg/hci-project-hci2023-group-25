@@ -1,4 +1,5 @@
 import 'package:chore_manager/a.dart';
+import 'package:chore_manager/b.dart';
 import 'package:chore_manager/data/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +37,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<DataProvider>(
       builder: (context, data, child) {
-        return data.altMode ? Container() : A(data: data);
+        return data.altMode ? B(data: data) : A(data: data);
       },
     );
   }

@@ -3,7 +3,7 @@ import 'package:chore_manager/data/initial_data.dart';
 import 'package:flutter/material.dart';
 
 class DataProvider with ChangeNotifier {
-  bool altMode = false; // altMode is B Type
+  bool altMode = true; // altMode is B Type
 
   void switchMode() {
     altMode = !altMode;
@@ -43,10 +43,7 @@ class DataProvider with ChangeNotifier {
     for (final room in rooms) {
       res.add((
         room,
-        chores.where((chore) => chore.room == room.name).toList()
-          ..sort(
-            (a, b) => a.dueDate.compareTo(b.dueDate),
-          ),
+        chores.where((chore) => chore.room == room.name).toList()..sortByDue(),
       ));
     }
     return res;
@@ -62,9 +59,7 @@ class DataProvider with ChangeNotifier {
             .where(
                 (chore) => chore.assignees[chore.currentAssignee] == user.name)
             .toList()
-          ..sort(
-            (a, b) => a.dueDate.compareTo(b.dueDate),
-          ),
+          ..sortByDue(),
       ));
     }
     return res;
@@ -90,10 +85,21 @@ class DataProvider with ChangeNotifier {
     }
 
     for (final group in res) {
-      group.$2.sort(
-        (a, b) => a.dueDate.compareTo(b.dueDate),
-      );
+      group.$2.sortByDue();
     }
     return res;
+  }
+
+  List<Chore> get personalChores {
+    return chores
+        .where((chore) => chore.assignees[chore.currentAssignee] == "You")
+        .toList()
+      ..sortByDue();
+  }
+}
+
+extension Sorter on List<Chore> {
+  void sortByDue() {
+    sort((a, b) => a.dueDate.compareTo(b.dueDate));
   }
 }

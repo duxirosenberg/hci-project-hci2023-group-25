@@ -87,6 +87,42 @@ class ChoreTile extends StatelessWidget {
   }
 }
 
+class ChoreDetail extends StatelessWidget {
+  final Chore chore;
+  const ChoreDetail({super.key, required this.chore});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(chore.name),
+            UserDisplay(
+                user: chore.assignees[chore.currentAssignee], small: false),
+          ],
+        ),
+        Text("Due ${chore.getDueString()}"),
+        Text("Room: ${chore.room}"),
+        Text(chore.room),
+        Text("Notes: ${chore.notes}"),
+        chore.assignedToUser
+            ? OutlinedButton(
+                onPressed: () {
+                  context.read<DataProvider>().markDone(chore);
+                },
+                child: const Text("Mark as completed"),
+              )
+            : OutlinedButton(
+                onPressed: () {}, child: const Text("Send a reminder")),
+      ],
+    );
+  }
+}
+
 class UserDisplay extends StatelessWidget {
   final bool small;
   final String user;

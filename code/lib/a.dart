@@ -1,7 +1,7 @@
 import 'package:chore_manager/data/data_provider.dart';
 import 'package:chore_manager/widgets/chore_list.dart';
+import 'package:chore_manager/widgets/popup_actions.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class A extends StatelessWidget {
   final DataProvider data;
@@ -14,39 +14,20 @@ class A extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Chore Manager'),
+          title: const Text('Chore Manager - A'),
           bottom: const TabBar(tabs: [
             Tab(text: "Room"),
             Tab(text: "Assigned to"),
             Tab(text: "Due Date"),
           ]),
-          actions: [
-            PopupMenuButton(
-              itemBuilder: (context) {
-                return [
-                  PopupMenuItem(
-                    child: const Text("Switch A/B"),
-                    onTap: () => context.read<DataProvider>().switchMode(),
-                  ),
-                  PopupMenuItem(
-                    child: const Text("Reset App"),
-                    onTap: () => context.read<DataProvider>().resetApp(),
-                  ),
-                ];
-              },
-            )
-          ],
+          actions: const [TopActionMenu()],
         ),
-        body: Consumer<DataProvider>(
-          builder: (context, data, child) {
-            return TabBarView(
-              children: [
-                ChoreList(chores: data.sortByRoom),
-                ChoreList(chores: data.sortByAssignee),
-                ChoreList(chores: data.sortByDueDate),
-              ],
-            );
-          },
+        body: TabBarView(
+          children: [
+            ChoreList(chores: data.sortByRoom),
+            ChoreList(chores: data.sortByAssignee),
+            ChoreList(chores: data.sortByDueDate),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
             onPressed: () {}, child: const Icon(Icons.add)),

@@ -1,8 +1,10 @@
 import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/data/data_provider.dart';
+import 'package:chore_manager/widgets/chore_list.dart';
 import 'package:chore_manager/widgets/chore_tile.dart';
 import 'package:chore_manager/widgets/popup_actions.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class B extends StatelessWidget {
   final DataProvider data;
@@ -30,9 +32,49 @@ class PersonalChoreList extends StatelessWidget {
   Widget build(BuildContext context) {
     // maybe replace with animated list
     return ListView.builder(
-      itemCount: chores.length,
+      itemCount: chores.length + 1,
       itemBuilder: (context, index) {
-        return ChoreDetail(chore: chores[index]);
+        if (index == 0) {
+          return Column(
+            children: [
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AllChoresPage(),
+                      ));
+                },
+                child: const Text("See all chores"),
+              ),
+              if (chores.isEmpty)
+                const Text("Congrats, all your chores are done!"),
+            ],
+          );
+        }
+
+        return Card(child: ChoreDetail(chore: chores[index - 1]));
+      },
+    );
+  }
+}
+
+class AllChoresPage extends StatelessWidget {
+  const AllChoresPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<DataProvider>(
+      builder: (context, data, child) {
+        final chores = data.chores..sortByDue();
+
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            title: const Text("All chores"),
+          ),
+          body: ChoreList(chores: chores),
+        );
       },
     );
   }

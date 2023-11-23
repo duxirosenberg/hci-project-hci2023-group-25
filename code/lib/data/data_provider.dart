@@ -96,6 +96,13 @@ class DataProvider with ChangeNotifier {
         .toList()
       ..sortByDue();
   }
+
+  /*List<Chore> get otherChores {
+    return chores
+        .where((chore) => chore.assignees[chore.currentAssignee] != "You")
+        .toList()
+      ..sortByDue();
+  }*/
 }
 
 extension Sorter on List<Chore> {

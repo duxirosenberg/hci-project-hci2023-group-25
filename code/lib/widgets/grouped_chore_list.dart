@@ -1,6 +1,6 @@
 import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/data/data_provider.dart';
-import 'package:chore_manager/widgets/chore_tile.dart';
+import 'package:chore_manager/widgets/chore_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,21 +19,15 @@ class GroupedChoreList extends StatelessWidget {
         },
         children: chores.map((entry) {
           return ExpansionPanel(
-              isExpanded: entry.$1.expanded,
-              canTapOnHeader: true,
-              headerBuilder: (context, isExpanded) {
-                return ListTile(
-                  title: Text(entry.$1.name),
-                );
-              },
-              body: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: entry.$2.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return ChoreTile(chore: entry.$2[index]);
-                },
-              ));
+            isExpanded: entry.$1.expanded,
+            canTapOnHeader: true,
+            headerBuilder: (context, isExpanded) {
+              return ListTile(
+                title: Text(entry.$1.name),
+              );
+            },
+            body: ChoreList(chores: entry.$2),
+          );
         }).toList(),
       ),
     );

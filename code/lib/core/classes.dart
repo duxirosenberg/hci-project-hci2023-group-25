@@ -19,7 +19,7 @@ class Chore {
     required this.notes,
   });
 
-  String getDueString() {
+  String get dueString {
     final dayDiff = daysUntilDue();
 
     if (dayDiff == 0) {
@@ -32,6 +32,16 @@ class Chore {
       return "${dayDiff.abs()} days ago";
     } else {
       return "in $dayDiff days";
+    }
+  }
+
+  String get frequencyString {
+    if (frequency == 1) {
+      return "daily";
+    } else if (frequency == 7) {
+      return "weekly";
+    } else {
+      return "every $frequency days";
     }
   }
 

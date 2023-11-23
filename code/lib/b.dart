@@ -2,6 +2,7 @@ import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/data/data_provider.dart';
 import 'package:chore_manager/widgets/chore_list.dart';
 import 'package:chore_manager/widgets/chore_tile.dart';
+import 'package:chore_manager/widgets/navigation_bar.dart';
 import 'package:chore_manager/widgets/popup_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,11 +16,12 @@ class B extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Chore Manager - B"),
-        actions: const [TopActionMenu()],
+        title: const Text("Your chores"),
+        actions: const [Text("B"), TopActionMenu()],
       ),
       body: PersonalChoreList(
           chores: data.personalChores), // only show personal chores
+      bottomNavigationBar: const MyNavigationBar(),
     );
   }
 }
@@ -37,7 +39,7 @@ class PersonalChoreList extends StatelessWidget {
         if (index == 0) {
           return Column(
             children: [
-              OutlinedButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                       context,

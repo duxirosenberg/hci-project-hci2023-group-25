@@ -1,5 +1,6 @@
 import 'package:chore_manager/data/data_provider.dart';
 import 'package:chore_manager/widgets/grouped_chore_list.dart';
+import 'package:chore_manager/widgets/navigation_bar.dart';
 import 'package:chore_manager/widgets/popup_actions.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +15,13 @@ class A extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Chore Manager - A'),
+          title: const Text('Chores'),
           bottom: const TabBar(tabs: [
             Tab(text: "Room"),
             Tab(text: "Assigned to"),
             Tab(text: "Due Date"),
           ]),
-          actions: const [TopActionMenu()],
+          actions: const [Text("A"), TopActionMenu()],
         ),
         body: TabBarView(
           children: [
@@ -31,27 +32,7 @@ class A extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
             onPressed: () {}, child: const Icon(Icons.add)),
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: 1,
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.message),
-              label: "Messages",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.checklist),
-              label: "Chores",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.shopping_basket),
-              label: "Shopping",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.monetization_on),
-              label: "Finances",
-            ),
-          ],
-        ),
+        bottomNavigationBar: const MyNavigationBar(),
       ),
     );
   }

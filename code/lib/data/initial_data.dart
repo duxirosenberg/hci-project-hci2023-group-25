@@ -38,7 +38,7 @@ class InitialData {
         dueDate: DateUtils.today().add(const Duration(days: 1)),
         frequency: 30,
         notes:
-            "Please make sure to clean all compartments. This also included the butter compartment. Also wipe all sections with a wet cloth.",
+            "Please make sure to clean all compartments. This also includes the butter compartment. Also wipe all sections with a wet cloth.",
       ),
       Chore(
         name: "Wipe Floor",
@@ -47,7 +47,7 @@ class InitialData {
         currentAssignee: 1,
         dueDate: DateUtils.today().add(const Duration(days: 3)),
         frequency: 14,
-        notes: null,
+        notes: "",
       ),
       Chore(
         name: "Clean Mirror & Sink",

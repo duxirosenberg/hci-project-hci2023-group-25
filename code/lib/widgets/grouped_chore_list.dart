@@ -26,7 +26,12 @@ class GroupedChoreList extends StatelessWidget {
                 title: Text(entry.$1.name),
               );
             },
-            body: ChoreList(chores: entry.$2),
+            body: entry.$2.isEmpty
+                ? const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    child: Text("No chores here at the moment!"),
+                  )
+                : ChoreList(chores: entry.$2),
           );
         }).toList(),
       ),

@@ -13,7 +13,7 @@ class ChoreTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(chore.name),
-      subtitle: Text("Due ${chore.getDueString()}"),
+      subtitle: Text("Due ${chore.dueString}"),
       leading: chore.assignedToUser
           ? Checkbox(
               value: false,
@@ -64,15 +64,31 @@ class ChoreDetail extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(chore.name),
+            Text(
+              chore.name,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             UserDisplay(
                 user: chore.assignees[chore.currentAssignee], small: false),
           ],
         ),
-        Text("Due ${chore.getDueString()}"),
-        Text("Room: ${chore.room}"),
-        Text(chore.room),
-        Text("Notes: ${chore.notes}"),
+        ListTile(
+          leading: const Icon(Icons.access_time),
+          title: Text(chore.dueString),
+        ),
+        ListTile(
+          leading: const Icon(Icons.location_pin),
+          title: Text(chore.room),
+        ),
+        ListTile(
+          leading: const Icon(Icons.replay_rounded),
+          title: Text(chore.frequencyString),
+        ),
+        if (chore.notes != null)
+          ListTile(
+            leading: const Icon(Icons.notes),
+            title: Text(chore.notes!),
+          ),
         chore.assignedToUser
             ? OutlinedButton(
                 onPressed: () {

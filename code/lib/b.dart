@@ -18,7 +18,7 @@ class B extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text("Your chores"),
+          title: const Text("Chores"),
           bottom: const TabBar(tabs: [
             Tab(text: "Your chores"),
             Tab(text: "All chores"),
@@ -44,15 +44,23 @@ class PersonalChoreList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // maybe replace with animated list
-    return ListView.builder(
-      itemCount: chores.length,
-      itemBuilder: (context, index) {
-        if (chores.isEmpty) {
-          return const Text("Congrats, all your chores are done!");
-        }
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+      child: ListView.builder(
+        itemCount: chores.length,
+        itemBuilder: (context, index) {
+          if (chores.isEmpty) {
+            return const Text("Congrats, all your chores are done!");
+          }
 
-        return Card(child: ChoreDetail(chore: chores[index]));
-      },
+          return Card(
+              margin: const EdgeInsets.symmetric(vertical: 6),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ChoreDetail(chore: chores[index]),
+              ));
+        },
+      ),
     );
   }
 }

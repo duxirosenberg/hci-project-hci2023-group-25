@@ -33,7 +33,7 @@ class InitialData {
       Chore(
         name: "Clean the fridge",
         room: "Kitchen",
-        assignees: ["You"],
+        assignees: ["You", "Sebastian"],
         currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: 1)),
         frequency: 30,
@@ -53,7 +53,7 @@ class InitialData {
         name: "Clean Mirror & Sink",
         room: "Bathroom",
         assignees: ["You", "Günther", "Sebastian"],
-        currentAssignee: 0,
+        currentAssignee: 2,
         dueDate: DateUtils.today().add(const Duration(days: 6)),
         frequency: 7,
         notes: null,
@@ -61,8 +61,8 @@ class InitialData {
       Chore(
         name: "Bathtub Deep Clean",
         room: "Bathroom",
-        assignees: ["You", "Günther", "Sebastian"],
-        currentAssignee: 0,
+        assignees: ["You", "Sebastian", "Günther"],
+        currentAssignee: 2,
         dueDate: DateUtils.today().add(const Duration(days: 7)),
         frequency: 60,
         notes: null,

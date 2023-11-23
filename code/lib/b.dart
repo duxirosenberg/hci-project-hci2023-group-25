@@ -13,15 +13,26 @@ class B extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Your chores"),
-        actions: const [Text("B"), TopActionMenu()],
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: const Text("Your chores"),
+          bottom: const TabBar(tabs: [
+            Tab(text: "Your chores"),
+            Tab(text: "All chores"),
+          ]),
+          actions: const [Text("B"), TopActionMenu()],
+        ),
+        body: TabBarView(
+          children: [
+            PersonalChoreList(chores: data.personalChores),
+            ChoreList(chores: data.chores..sortByDue()),
+          ],
+        ), // only show personal chores
+        bottomNavigationBar: const MyNavigationBar(),
       ),
-      body: PersonalChoreList(
-          chores: data.personalChores), // only show personal chores
-      bottomNavigationBar: const MyNavigationBar(),
     );
   }
 }
@@ -34,28 +45,13 @@ class PersonalChoreList extends StatelessWidget {
   Widget build(BuildContext context) {
     // maybe replace with animated list
     return ListView.builder(
-      itemCount: chores.length + 1,
+      itemCount: chores.length,
       itemBuilder: (context, index) {
-        if (index == 0) {
-          return Column(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AllChoresPage(),
-                      ));
-                },
-                child: const Text("See all chores"),
-              ),
-              if (chores.isEmpty)
-                const Text("Congrats, all your chores are done!"),
-            ],
-          );
+        if (chores.isEmpty) {
+          return const Text("Congrats, all your chores are done!");
         }
 
-        return Card(child: ChoreDetail(chore: chores[index - 1]));
+        return Card(child: ChoreDetail(chore: chores[index]));
       },
     );
   }

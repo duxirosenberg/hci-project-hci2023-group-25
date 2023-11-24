@@ -10,6 +10,7 @@ class GroupedChoreList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 90),
       child: ExpansionPanelList(
         // maybe replace with ExpansionTiles
         expansionCallback: (panelIndex, isExpanded) {

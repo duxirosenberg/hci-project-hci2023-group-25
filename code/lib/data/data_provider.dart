@@ -43,7 +43,7 @@ class DataProvider with ChangeNotifier {
     for (final room in rooms) {
       res.add((
         room,
-        chores.where((chore) => chore.room == room.name).toList()..sortByDue(),
+        chores.where((chore) => chore.room == room.name).toList(),
       ));
     }
     return res;
@@ -108,5 +108,9 @@ class DataProvider with ChangeNotifier {
 extension Sorter on List<Chore> {
   void sortByDue() {
     sort((a, b) => a.dueDate.compareTo(b.dueDate));
+  }
+
+  void sortByFrequency() {
+    sort((a, b) => a.frequency.compareTo(b.frequency));
   }
 }

@@ -67,30 +67,44 @@ class ChoreDetail extends StatelessWidget {
                 ),
               ],
             ),
-            UserDisplay(
-                user: chore.assignees[chore.currentAssignee], small: false),
           ],
         ),
-        ListTile(
-          leading: const Icon(Icons.access_time),
-          title: Text(chore.dueString),
+        Column(
+          children: [
+            ListTile(
+              visualDensity: VisualDensity.compact,
+              title: UserDisplay(
+                  user: chore.assignees[chore.currentAssignee], small: false),
+            ),
+            ListTile(
+              visualDensity: VisualDensity.compact,
+              leading: const Icon(Icons.access_time),
+              title: Text(chore.dueString),
+            ),
+            ListTile(
+              visualDensity: VisualDensity.compact,
+              leading: const Icon(Icons.location_pin),
+              title: Text(chore.room),
+            ),
+            ListTile(
+              visualDensity: VisualDensity.compact,
+              leading: const Icon(Icons.replay_rounded),
+              title: Text(chore.frequencyString),
+            ),
+            if (chore.notes != null)
+              ListTile(
+                visualDensity: VisualDensity.compact,
+                leading: const Icon(Icons.notes),
+                title: Text(chore.notes!),
+              ),
+          ],
         ),
-        ListTile(
-          leading: const Icon(Icons.location_pin),
-          title: Text(chore.room),
-        ),
-        ListTile(
-          leading: const Icon(Icons.replay_rounded),
-          title: Text(chore.frequencyString),
-        ),
-        if (chore.notes != null)
-          ListTile(
-            leading: const Icon(Icons.notes),
-            title: Text(chore.notes!),
-          ),
         Align(
           alignment: Alignment.centerRight,
-          child: TextButton(onPressed: () {}, child: const Text("Edit")),
+          child: TextButton(
+            onPressed: () {},
+            child: const Text("Edit"),
+          ),
         ),
         /* chore.assignedToUser
             ? OutlinedButton(
@@ -116,16 +130,19 @@ class UserDisplay extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          user,
-          style: const TextStyle(fontSize: 14),
-        ),
-        const SizedBox(
-          width: 8,
-        ),
         CircleAvatar(
+          backgroundColor: user == "You" ? Colors.greenAccent : null,
           child: Text(user.substring(0, 1)),
         ),
+        if (!small) ...[
+          const SizedBox(
+            width: 8,
+          ),
+          Text(
+            user,
+            style: const TextStyle(fontSize: 14),
+          ),
+        ]
       ],
     );
   }
@@ -142,17 +159,21 @@ class CheckboxOrBell extends StatelessWidget {
             value: false,
             onChanged: (value) {
               context.read<DataProvider>().markDone(chore);
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("\"${chore.name}\" marked as done"),
+                //showCloseIcon: true,
+              ));
             },
           )
-        : SizedBox(
-            width: 32,
-            height: 32,
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              onPressed: () {},
-              icon: const Icon(
-                Icons.notifications,
-              ),
+        : IconButton(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("Sent a reminder for \"${chore.name}\""),
+                //showCloseIcon: true,
+              ));
+            },
+            icon: const Icon(
+              Icons.notifications_active_outlined,
             ),
           );
   }

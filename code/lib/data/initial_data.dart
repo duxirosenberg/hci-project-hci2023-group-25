@@ -74,7 +74,7 @@ class InitialData {
         currentAssignee: 0,
         dueDate: DateUtils.today().add(const Duration(days: -2)),
         frequency: 7,
-        notes: null,
+        notes: "Make sure to put a new trash bag into the bin afterwards.",
       ),
       Chore(
         assignees: ["You", "Günther", "Sebastian"],

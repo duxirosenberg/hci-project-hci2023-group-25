@@ -32,6 +32,8 @@ class B extends StatelessWidget {
           ],
         ), // only show personal chores
         bottomNavigationBar: const MyNavigationBar(),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {}, child: const Icon(Icons.add)),
       ),
     );
   }
@@ -46,21 +48,20 @@ class PersonalChoreList extends StatelessWidget {
     // maybe replace with animated list
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
-      child: ListView.builder(
-        itemCount: chores.length,
-        itemBuilder: (context, index) {
-          if (chores.isEmpty) {
-            return const Text("Congrats, all your chores are done!");
-          }
-
-          return Card(
-              margin: const EdgeInsets.symmetric(vertical: 6),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ChoreDetail(chore: chores[index]),
-              ));
-        },
-      ),
+      child: chores.isEmpty
+          ? Center(child: Text("Congrats, all your chores are done!"))
+          : ListView.builder(
+              padding: EdgeInsets.only(bottom: 90),
+              itemCount: chores.length,
+              itemBuilder: (context, index) {
+                return Card(
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: ChoreDetail(chore: chores[index]),
+                    ));
+              },
+            ),
     );
   }
 }
@@ -79,7 +80,10 @@ class AllChoresPage extends StatelessWidget {
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             title: const Text("All chores"),
           ),
-          body: ChoreList(chores: chores),
+          body: Padding(
+            padding: const EdgeInsets.only(bottom: 90.0),
+            child: ChoreList(chores: chores),
+          ),
         );
       },
     );

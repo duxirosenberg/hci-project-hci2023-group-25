@@ -43,7 +43,7 @@ class DataProvider with ChangeNotifier {
     for (final room in rooms) {
       res.add((
         room,
-        chores.where((chore) => chore.room == room.name).toList(),
+        chores.where((chore) => chore.room == room.name).toList()..sortByDue(),
       ));
     }
     return res;

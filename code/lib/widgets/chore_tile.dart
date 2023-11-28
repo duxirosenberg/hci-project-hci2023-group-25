@@ -20,12 +20,6 @@ class ChoreTile extends StatelessWidget {
         children: [
           UserDisplay(
               small: true, user: chore.assignees[chore.currentAssignee]),
-          /*IconButton(
-            onPressed: () {
-              context.read<DataProvider>().markDone(chore);
-            },
-            icon: const Icon(Icons.check),
-          ),*/
         ],
       ),
       onTap: () => showDialog(
@@ -52,44 +46,51 @@ class ChoreDetail extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                CheckboxOrBell(chore: chore),
-                const SizedBox(
-                  width: 12,
-                ),
-                Text(
-                  chore.name,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-              ],
-            ),
-          ],
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: CheckboxOrBell(chore: chore),
+          title: Text(
+            chore.name,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
         ),
         Column(
           children: [
-            ListTile(
-              visualDensity: VisualDensity.compact,
-              title: UserDisplay(
-                  user: chore.assignees[chore.currentAssignee], small: false),
+            Row(
+              children: [
+                Expanded(
+                  child: UserDisplay(
+                    user: chore.assignees[chore.currentAssignee],
+                    small: false,
+                  ),
+                ),
+                Expanded(
+                  child: ListTile(
+                    visualDensity: VisualDensity.compact,
+                    leading: const Icon(Icons.access_time),
+                    title: Text(chore.dueString),
+                  ),
+                ),
+              ],
             ),
-            ListTile(
-              visualDensity: VisualDensity.compact,
-              leading: const Icon(Icons.access_time),
-              title: Text(chore.dueString),
-            ),
-            ListTile(
-              visualDensity: VisualDensity.compact,
-              leading: const Icon(Icons.location_pin),
-              title: Text(chore.room),
-            ),
-            ListTile(
-              visualDensity: VisualDensity.compact,
-              leading: const Icon(Icons.replay_rounded),
-              title: Text(chore.frequencyString),
+            Row(
+              children: [
+                Expanded(
+                  child: ListTile(
+                    visualDensity: VisualDensity.compact,
+                    leading: const Icon(Icons.location_pin),
+                    title: Text(chore.room),
+                  ),
+                ),
+                Expanded(
+                  child: ListTile(
+                    visualDensity: VisualDensity.compact,
+                    leading: const Icon(Icons.replay_rounded),
+                    title: Text(chore.frequencyString),
+                  ),
+                ),
+              ],
             ),
             if (chore.notes != null)
               ListTile(
@@ -99,22 +100,6 @@ class ChoreDetail extends StatelessWidget {
               ),
           ],
         ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton(
-            onPressed: () {},
-            child: const Text("Edit"),
-          ),
-        ),
-        /* chore.assignedToUser
-            ? OutlinedButton(
-                onPressed: () {
-                  context.read<DataProvider>().markDone(chore);
-                },
-                child: const Text("Mark as completed"),
-              )
-            : OutlinedButton(
-                onPressed: () {}, child: const Text("Send a reminder")),*/
       ],
     );
   }
@@ -127,23 +112,24 @@ class UserDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CircleAvatar(
-          backgroundColor: user == "You" ? Colors.greenAccent : null,
-          child: Text(user.substring(0, 1)),
-        ),
-        if (!small) ...[
-          const SizedBox(
-            width: 8,
-          ),
-          Text(
-            user,
-            style: const TextStyle(fontSize: 14),
-          ),
-        ]
-      ],
+    if (small) {
+      return CircleAvatar(
+        backgroundColor:
+            user == "You" ? Colors.greenAccent : Colors.lightBlueAccent,
+        child: Text(user.substring(0, 1)),
+      );
+    }
+
+    return ListTile(
+      leading: CircleAvatar(
+        radius: 12,
+        backgroundColor:
+            user == "You" ? Colors.greenAccent : Colors.lightBlueAccent,
+        child: Text(user.substring(0, 1)),
+      ),
+      title: Text(
+        user,
+      ),
     );
   }
 }
@@ -161,7 +147,6 @@ class CheckboxOrBell extends StatelessWidget {
               context.read<DataProvider>().markDone(chore);
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("\"${chore.name}\" marked as done"),
-                //showCloseIcon: true,
               ));
             },
           )
@@ -169,7 +154,6 @@ class CheckboxOrBell extends StatelessWidget {
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("Sent a reminder for \"${chore.name}\""),
-                //showCloseIcon: true,
               ));
             },
             icon: const Icon(

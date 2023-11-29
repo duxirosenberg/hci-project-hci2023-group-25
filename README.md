@@ -405,3 +405,12 @@ There will be no effect of using variant B over A on ...
 The participants will be asked to familiarise themselves with the app by adding, searching and reading a small number of chores from the app. We'll change the app session, such that participants can't learn the exact position of tasks and let them search and analyse chores in each variant respectively. Details can be read in the [Preliminary Study Protocol](Deliverables/Study/Preliminary_Protocol.pdf)
 
 Overall the user study should give us insight about how efficiently and joyfully participants can work with our app. Carving the way for another iteration of our app.
+
+## Week 11: Pilot study and testing preliminary protocol
+This week marked a crucial phase in our project as we conducted the first user test on our prototype. The experience served as a valuable reality check, highlighting the need for quick fixes to enhance the prototype's functionality. To address these issues, we promptly implemented adjustments and proceeded with a pilot study.
+
+The initial stages of the study were promising, featuring a friendly introduction that engaged the user and provided context without overwhelming them. However, it became apparent that our approach to documenting data required modification. We shifted from screen recording to using a stopwatch, enabling more precise measurement. The previous method made it challenging to discern when the user initiated and completed a task.
+
+To refine our time measurement process, we developed a simple protocol to clearly mark the start and end of each task. Additionally, we identified a task that needed adaptation to cater to both Type A and Type B users. Originally, the task involved searching for a category, but we revised it to have users search for specific information within that category. This adjustment ensured a more inclusive and comprehensive evaluation.
+
+As part of our study, we integrated the NASA Task Load Index (NASA TLX) questionnaire, providing additional insights into the user experience. Observing users set up the app, interact with it, and take their initial steps was enlightening. Overall, the pilot study offered valuable insights into the user's perspective and allowed us to fine-tune the study.

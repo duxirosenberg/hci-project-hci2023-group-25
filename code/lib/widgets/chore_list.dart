@@ -5,12 +5,14 @@ import 'package:chore_manager/widgets/chore_tile.dart';
 import 'package:flutter/material.dart';
 
 class ChoreList extends StatelessWidget {
+  final bool scrollable;
   final List<Chore> chores;
-  const ChoreList({super.key, required this.chores});
+  const ChoreList({super.key, required this.chores, required this.scrollable});
 
   @override
   Widget build(BuildContext context) {
     return ImplicitlyAnimatedList(
+      physics: scrollable ? null : const NeverScrollableScrollPhysics(),
       items: chores,
       shrinkWrap: true,
       itemBuilder: (context, animation, item, i) {

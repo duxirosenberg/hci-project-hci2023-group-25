@@ -12,7 +12,6 @@ class GroupedChoreList extends StatelessWidget {
     return SingleChildScrollView(
       padding: const EdgeInsets.only(bottom: 90),
       child: ExpansionPanelList(
-        // maybe replace with ExpansionTiles
         expansionCallback: (panelIndex, isExpanded) {
           context
               .read<DataProvider>()
@@ -32,7 +31,10 @@ class GroupedChoreList extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text("No chores here at the moment!"),
                   )
-                : ChoreList(chores: entry.$2),
+                : ChoreList(
+                    chores: entry.$2,
+                    scrollable: false,
+                  ),
           );
         }).toList(),
       ),

@@ -68,7 +68,10 @@ class ChoreDetail extends StatelessWidget {
                 Expanded(
                   child: ListTile(
                     visualDensity: VisualDensity.compact,
-                    leading: const Icon(Icons.access_time),
+                    leading: Icon(
+                      Icons.access_time,
+                      color: chore.dueColor,
+                    ),
                     title: Text(chore.dueString),
                   ),
                 ),

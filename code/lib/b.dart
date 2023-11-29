@@ -29,7 +29,10 @@ class B extends StatelessWidget {
         body: TabBarView(
           children: [
             PersonalChoreList(chores: data.personalChores),
-            ChoreList(chores: data.chores..sortByDue()),
+            ChoreList(
+              chores: data.chores..sortByDue(),
+              scrollable: true,
+            ),
           ],
         ), // only show personal chores
         bottomNavigationBar: const MyNavigationBar(),

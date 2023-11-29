@@ -1,4 +1,5 @@
 import 'package:chore_manager/core/utils.dart';
+import 'package:flutter/material.dart';
 
 class Chore {
   final String name;
@@ -35,11 +36,27 @@ class Chore {
     }
   }
 
+  Color? get dueColor {
+    final dayDiff = daysUntilDue();
+
+    if (dayDiff < 0) {
+      return Colors.redAccent;
+    } else if (dayDiff == 0) {
+      return Colors.orangeAccent;
+    } else {
+      return null;
+    }
+  }
+
   String get frequencyString {
     if (frequency == 1) {
       return "daily";
     } else if (frequency == 7) {
       return "weekly";
+    } else if (frequency == 14) {
+      return "biweekly";
+    } else if (frequency == 30) {
+      return "monthly";
     } else {
       return "every $frequency days";
     }
@@ -47,7 +64,7 @@ class Chore {
 
   void markDone() {
     currentAssignee = (currentAssignee + 1) % assignees.length;
-    dueDate = DateUtils.today().add(Duration(days: frequency));
+    dueDate = MyDateUtils.today().add(Duration(days: frequency));
   }
 
   bool get assignedToUser {
@@ -55,7 +72,7 @@ class Chore {
   }
 
   int daysUntilDue() {
-    return dueDate.difference(DateUtils.today()).inDays;
+    return dueDate.difference(MyDateUtils.today()).inDays;
   }
 }
 

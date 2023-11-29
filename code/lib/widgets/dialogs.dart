@@ -9,6 +9,7 @@ class ChoreDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      insetPadding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
       content: SizedBox(
           width: 800,
           child: SingleChildScrollView(child: ChoreDetail(chore: chore))),

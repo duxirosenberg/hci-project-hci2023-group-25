@@ -6,14 +6,25 @@ import 'package:provider/provider.dart';
 
 class ChoreTile extends StatelessWidget {
   final Chore chore;
-
   const ChoreTile({super.key, required this.chore});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(chore.name),
-      subtitle: Text("Due ${chore.dueString}"),
+      subtitle: Row(
+        children: [
+          Icon(
+            Icons.access_time,
+            size: (Theme.of(context).textTheme.bodyMedium?.fontSize ?? 14) + 2,
+            color: chore.dueColor,
+          ),
+          const SizedBox(
+            width: 4,
+          ),
+          Text(chore.dueString),
+        ],
+      ),
       leading: CheckboxOrBell(chore: chore),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,

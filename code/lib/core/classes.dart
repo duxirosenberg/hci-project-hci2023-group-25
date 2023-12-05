@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class Chore {
   final String name;
   final List<String> assignees;
-  int currentAssignee; // index of the current assignee
+  int indexOfCurrentAssignee; // index of the current assignee
   final String room;
   DateTime dueDate; // probably need to replace with schedule
   final int frequency; // days before chore should be done again
@@ -12,13 +12,24 @@ class Chore {
 
   Chore({
     required this.assignees,
-    required this.currentAssignee,
+    required this.indexOfCurrentAssignee,
     required this.name,
     required this.dueDate,
     required this.frequency,
     required this.room,
     required this.notes,
   });
+
+  Chore.clone(Chore chore)
+      : this(
+          name: chore.name,
+          assignees: List.from(chore.assignees),
+          indexOfCurrentAssignee: chore.indexOfCurrentAssignee,
+          room: chore.room,
+          dueDate: chore.dueDate.copyWith(),
+          frequency: chore.frequency,
+          notes: chore.notes,
+        );
 
   String get dueString {
     final dayDiff = daysUntilDue();
@@ -63,12 +74,22 @@ class Chore {
   }
 
   void markDone() {
-    currentAssignee = (currentAssignee + 1) % assignees.length;
+    if (assignees.isNotEmpty) {
+      indexOfCurrentAssignee = (indexOfCurrentAssignee + 1) % assignees.length;
+    }
     dueDate = MyDateUtils.today().add(Duration(days: frequency));
   }
 
   bool get assignedToUser {
-    return currentAssignee == 0;
+    return indexOfCurrentAssignee == 0;
+  }
+
+  String? get currentAssignee {
+    if (assignees.isEmpty) {
+      return null;
+    } else {
+      return assignees[indexOfCurrentAssignee];
+    }
   }
 
   int daysUntilDue() {
@@ -93,6 +114,10 @@ class User extends ChoreGroup {
 
 class Due extends ChoreGroup {
   Due(super.name);
+}
+
+class SpecialGroup extends ChoreGroup {
+  SpecialGroup(super.name);
 }
 
 typedef GroupedChores = List<(ChoreGroup, List<Chore>)>;

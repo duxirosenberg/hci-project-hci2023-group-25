@@ -29,8 +29,7 @@ class ChoreTile extends StatelessWidget {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          UserDisplay(
-              small: true, user: chore.assignees[chore.currentAssignee]),
+          UserDisplay(small: true, user: chore.currentAssignee),
         ],
       ),
       onTap: () => showDialog(
@@ -64,7 +63,16 @@ class ChoreDetail extends StatelessWidget {
             chore.name,
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
+          trailing: IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return ChoreEditDialog(chore: chore);
+                  },
+                );
+              },
+              icon: const Icon(Icons.edit)),
         ),
         Column(
           children: [
@@ -72,7 +80,7 @@ class ChoreDetail extends StatelessWidget {
               children: [
                 Expanded(
                   child: UserDisplay(
-                    user: chore.assignees[chore.currentAssignee],
+                    user: chore.currentAssignee,
                     small: false,
                   ),
                 ),
@@ -121,30 +129,41 @@ class ChoreDetail extends StatelessWidget {
 
 class UserDisplay extends StatelessWidget {
   final bool small;
-  final String user;
+  final String? user;
   const UserDisplay({super.key, required this.user, required this.small});
 
   @override
   Widget build(BuildContext context) {
-    if (small) {
-      return CircleAvatar(
-        backgroundColor:
-            user == "You" ? Colors.greenAccent : Colors.lightBlueAccent,
-        child: Text(user.substring(0, 1)),
+    if (user == null) {
+      if (small) {
+        return Container();
+      } else {
+        return const ListTile(
+          leading: Icon(Icons.no_accounts),
+          title: Text("Unassigned"),
+        );
+      }
+    } else {
+      if (small) {
+        return CircleAvatar(
+          backgroundColor:
+              user == "You" ? Colors.greenAccent : Colors.lightBlueAccent,
+          child: Text(user!.substring(0, 1)),
+        );
+      }
+
+      return ListTile(
+        leading: CircleAvatar(
+          radius: 12,
+          backgroundColor:
+              user == "You" ? Colors.greenAccent : Colors.lightBlueAccent,
+          child: Text(user!.substring(0, 1)),
+        ),
+        title: Text(
+          user!,
+        ),
       );
     }
-
-    return ListTile(
-      leading: CircleAvatar(
-        radius: 12,
-        backgroundColor:
-            user == "You" ? Colors.greenAccent : Colors.lightBlueAccent,
-        child: Text(user.substring(0, 1)),
-      ),
-      title: Text(
-        user,
-      ),
-    );
   }
 }
 

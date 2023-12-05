@@ -32,7 +32,7 @@ class InitialData {
         name: "Clean the fridge",
         room: "Kitchen",
         assignees: ["You", "Sebastian"],
-        currentAssignee: 0,
+        indexOfCurrentAssignee: 0,
         dueDate: MyDateUtils.today().add(const Duration(days: 1)),
         frequency: 30,
         notes:
@@ -42,7 +42,7 @@ class InitialData {
         name: "Sweep Floor",
         room: "Kitchen",
         assignees: ["You", "Günther", "Sebastian"],
-        currentAssignee: 1,
+        indexOfCurrentAssignee: 1,
         dueDate: MyDateUtils.today().add(const Duration(days: 3)),
         frequency: 14,
         notes:
@@ -52,7 +52,7 @@ class InitialData {
         name: "Clean Mirror & Sink",
         room: "Bathroom",
         assignees: ["You", "Günther", "Sebastian"],
-        currentAssignee: 2,
+        indexOfCurrentAssignee: 2,
         dueDate: MyDateUtils.today().add(const Duration(days: 6)),
         frequency: 7,
         notes: null,
@@ -61,7 +61,7 @@ class InitialData {
         name: "Bathtub Deep Clean",
         room: "Bathroom",
         assignees: ["You", "Sebastian", "Günther"],
-        currentAssignee: 2,
+        indexOfCurrentAssignee: 2,
         dueDate: MyDateUtils.today().add(const Duration(days: 7)),
         frequency: 30,
         notes: null,
@@ -70,7 +70,7 @@ class InitialData {
         name: "Take out trash",
         room: "Kitchen",
         assignees: ["You", "Günther", "Sebastian"],
-        currentAssignee: 0,
+        indexOfCurrentAssignee: 0,
         dueDate: MyDateUtils.today().add(const Duration(days: -2)),
         frequency: 7,
         notes:
@@ -78,7 +78,7 @@ class InitialData {
       ),
       Chore(
         assignees: ["You", "Günther", "Sebastian"],
-        currentAssignee: 0,
+        indexOfCurrentAssignee: 0,
         name: "Vacuum",
         dueDate: MyDateUtils.today(),
         frequency: 1,

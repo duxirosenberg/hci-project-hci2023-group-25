@@ -23,6 +23,8 @@ class DataProvider with ChangeNotifier {
   late List<User> users;
   late List<Due> dues;
 
+  SpecialGroup unassigned = SpecialGroup("Unassigned");
+
   DataProvider() {
     resetApp();
   }
@@ -34,6 +36,17 @@ class DataProvider with ChangeNotifier {
 
   void setExpanded(ChoreGroup group, bool expanded) {
     group.expanded = expanded;
+    notifyListeners();
+  }
+
+  void addChore(Chore chore) {
+    chores.add(chore);
+    notifyListeners();
+  }
+
+  void updateChore(Chore old, Chore updated) {
+    int index = chores.indexWhere((element) => old.name == element.name);
+    chores[index] = updated;
     notifyListeners();
   }
 
@@ -56,12 +69,19 @@ class DataProvider with ChangeNotifier {
       res.add((
         user,
         chores
-            .where(
-                (chore) => chore.assignees[chore.currentAssignee] == user.name)
+            .where((chore) =>
+                chore.assignees.isNotEmpty &&
+                chore.assignees[chore.indexOfCurrentAssignee] == user.name)
             .toList()
           ..sortByDue(),
       ));
     }
+
+    res.add((
+      unassigned,
+      chores.where((chore) => chore.assignees.isEmpty).toList()
+    ));
+
     return res;
   }
 
@@ -92,7 +112,9 @@ class DataProvider with ChangeNotifier {
 
   List<Chore> get personalChores {
     return chores
-        .where((chore) => chore.assignees[chore.currentAssignee] == "You")
+        .where((chore) =>
+            chore.assignees.isNotEmpty &&
+            chore.assignees[chore.indexOfCurrentAssignee] == "You")
         .toList()
       ..sortByDue();
   }

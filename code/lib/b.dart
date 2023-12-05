@@ -4,6 +4,7 @@ import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/data/data_provider.dart';
 import 'package:chore_manager/widgets/chore_list.dart';
 import 'package:chore_manager/widgets/chore_tile.dart';
+import 'package:chore_manager/widgets/dialogs.dart';
 import 'package:chore_manager/widgets/navigation_bar.dart';
 import 'package:chore_manager/widgets/popup_actions.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,15 @@ class B extends StatelessWidget {
         ), // only show personal chores
         bottomNavigationBar: const MyNavigationBar(),
         floatingActionButton: FloatingActionButton(
-            onPressed: () {}, child: const Icon(Icons.add)),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return ChoreEditDialog(chore: null);
+                },
+              );
+            },
+            child: const Icon(Icons.add)),
       ),
     );
   }

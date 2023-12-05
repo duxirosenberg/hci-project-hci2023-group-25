@@ -4,3 +4,9 @@ class MyDateUtils {
     return DateTime(now.year, now.month, now.day, 12);
   }
 }
+
+extension E on DateTime {
+  String toFormatString() {
+    return "$day.$month.$year";
+  }
+}

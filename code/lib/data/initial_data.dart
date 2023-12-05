@@ -4,9 +4,9 @@ import 'package:chore_manager/core/utils.dart';
 class InitialData {
   List<Room> getRooms() {
     return [
+      Room("General"),
       Room("Kitchen"),
       Room("Bathroom"),
-      Room("Other"),
     ];
   }
 
@@ -82,7 +82,7 @@ class InitialData {
         name: "Vacuum",
         dueDate: MyDateUtils.today(),
         frequency: 1,
-        room: "Other",
+        room: "General",
         notes: "Also vacuum the sofa",
       ),
     ];

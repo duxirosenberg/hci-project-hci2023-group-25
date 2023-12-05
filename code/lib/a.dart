@@ -1,4 +1,5 @@
 import 'package:chore_manager/data/data_provider.dart';
+import 'package:chore_manager/widgets/dialogs.dart';
 import 'package:chore_manager/widgets/grouped_chore_list.dart';
 import 'package:chore_manager/widgets/navigation_bar.dart';
 import 'package:chore_manager/widgets/popup_actions.dart';
@@ -31,7 +32,17 @@ class A extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-            onPressed: () {}, child: const Icon(Icons.add)),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return ChoreEditDialog(
+                    chore: null,
+                  );
+                },
+              );
+            },
+            child: const Icon(Icons.add)),
         bottomNavigationBar: const MyNavigationBar(),
       ),
     );

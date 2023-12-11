@@ -31,7 +31,7 @@ class B extends StatelessWidget {
           children: [
             PersonalChoreList(chores: data.personalChores),
             ChoreList(
-              chores: data.chores..sortByDue(),
+              chores: data.choreBox.values.toList()..sortByDue(),
               scrollable: true,
             ),
           ],

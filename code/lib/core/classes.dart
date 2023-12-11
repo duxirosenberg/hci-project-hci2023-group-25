@@ -1,13 +1,30 @@
 import 'package:chore_manager/core/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class Chore {
+part 'classes.g.dart';
+
+@HiveType(typeId: 0)
+class Chore extends HiveObject {
+  @HiveField(0)
   final String name;
+
+  @HiveField(1)
   final List<String> assignees;
+
+  @HiveField(2)
   int indexOfCurrentAssignee; // index of the current assignee
+
+  @HiveField(3)
   final String room;
+
+  @HiveField(4)
   DateTime dueDate; // probably need to replace with schedule
+
+  @HiveField(5)
   final int frequency; // days before chore should be done again
+
+  @HiveField(6)
   final String? notes;
 
   Chore({
@@ -97,17 +114,23 @@ class Chore {
   }
 }
 
-class ChoreGroup {
+@HiveType(typeId: 1)
+class ChoreGroup extends HiveObject {
+  @HiveField(0)
   final String name;
+
+  @HiveField(1)
   bool expanded = true;
 
   ChoreGroup(this.name);
 }
 
+@HiveType(typeId: 2)
 class Room extends ChoreGroup {
   Room(super.name);
 }
 
+@HiveType(typeId: 3)
 class User extends ChoreGroup {
   User(super.name);
 }

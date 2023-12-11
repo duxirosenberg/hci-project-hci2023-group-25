@@ -128,7 +128,7 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                       width: MediaQuery.of(context).size.width - 32,
                       label: const Text("Room"),
                       initialSelection: room,
-                      dropdownMenuEntries: data.rooms
+                      dropdownMenuEntries: data.roomBox.values
                           .map((room) => DropdownMenuEntry(
                               value: room.name, label: room.name))
                           .toList(),
@@ -162,7 +162,7 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                     Wrap(
                       spacing: 8,
                       runSpacing: 4,
-                      children: data.users
+                      children: data.userBox.values
                           .map(
                             (user) => FilterChip(
                               showCheckmark: false,

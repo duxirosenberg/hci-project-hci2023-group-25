@@ -1,10 +1,23 @@
 import 'package:chore_manager/a.dart';
 import 'package:chore_manager/b.dart';
+import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/data/data_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(ChoreAdapter());
+  Hive.registerAdapter<Room>(RoomAdapter());
+  Hive.registerAdapter<User>(UserAdapter());
+
+  await Hive.openBox("settings");
+  await Hive.openBox<Chore>("chores");
+  await Hive.openBox<Room>("rooms");
+  await Hive.openBox<User>("users");
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => DataProvider(),

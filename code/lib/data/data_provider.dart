@@ -1,36 +1,51 @@
 import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/data/initial_data.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class DataProvider with ChangeNotifier {
-  bool altMode = true; // altMode is B Type
-
   void switchMode() {
-    altMode = !altMode;
+    settingsBox.put("altMode", !altMode);
     notifyListeners();
   }
 
-  void resetApp() {
-    chores = InitialData().getChores();
-    rooms = InitialData().getRooms();
-    users = InitialData().getUsers();
-    dues = InitialData().getDues();
+  void resetApp() async {
+    await choreBox.clear();
+    await roomBox.clear();
+    await userBox.clear();
+
+    await choreBox.addAll(InitialData().getChores());
+    await roomBox.addAll(InitialData().getRooms());
+    await userBox.addAll(InitialData().getUsers());
     notifyListeners();
   }
 
-  late List<Chore> chores;
-  late List<Room> rooms;
-  late List<User> users;
+  final Box settingsBox = Hive.box("settings");
+  final Box<Chore> choreBox = Hive.box("chores");
+  final Box<Room> roomBox = Hive.box("rooms");
+  final Box<User> userBox = Hive.box("users");
   late List<Due> dues;
 
   SpecialGroup unassigned = SpecialGroup("Unassigned");
 
   DataProvider() {
-    resetApp();
+    dues = InitialData().getDues();
+
+    final firstRun = settingsBox.get("firstRun", defaultValue: true) as bool;
+    if (firstRun) {
+      resetApp();
+      settingsBox.put("firstRun", false);
+      settingsBox.put("altMode", false);
+    }
   }
 
-  void markDone(Chore chore) {
+  bool get altMode {
+    return settingsBox.get("altMode", defaultValue: false) as bool;
+  }
+
+  void markDone(Chore chore) async {
     chore.markDone();
+    await chore.save();
     notifyListeners();
   }
 
@@ -39,24 +54,26 @@ class DataProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void addChore(Chore chore) {
-    chores.add(chore);
+  Future<void> addChore(Chore chore) async {
+    await choreBox.add(chore);
     notifyListeners();
   }
 
-  void updateChore(Chore old, Chore updated) {
-    int index = chores.indexWhere((element) => old.name == element.name);
-    chores[index] = updated;
+  Future<void> updateChore(Chore old, Chore updated) async {
+    old.delete();
+    choreBox.add(updated);
+
     notifyListeners();
   }
 
   GroupedChores get sortByRoom {
     final GroupedChores res = [];
 
-    for (final room in rooms) {
+    for (final room in roomBox.values) {
       res.add((
         room,
-        chores.where((chore) => chore.room == room.name).toList()..sortByDue(),
+        choreBox.values.where((chore) => chore.room == room.name).toList()
+          ..sortByDue(),
       ));
     }
     return res;
@@ -65,10 +82,10 @@ class DataProvider with ChangeNotifier {
   GroupedChores get sortByAssignee {
     final GroupedChores res = [];
 
-    for (final user in users) {
+    for (final user in userBox.values) {
       res.add((
         user,
-        chores
+        choreBox.values
             .where((chore) =>
                 chore.assignees.isNotEmpty &&
                 chore.assignees[chore.indexOfCurrentAssignee] == user.name)
@@ -79,7 +96,7 @@ class DataProvider with ChangeNotifier {
 
     res.add((
       unassigned,
-      chores.where((chore) => chore.assignees.isEmpty).toList()
+      choreBox.values.where((chore) => chore.assignees.isEmpty).toList()
     ));
 
     return res;
@@ -91,7 +108,7 @@ class DataProvider with ChangeNotifier {
     res.add((dues[1], [])); // due today
     res.add((dues[2], [])); // upcoming
 
-    for (final chore in chores) {
+    for (final chore in choreBox.values) {
       int index;
       if (chore.daysUntilDue() < 0) {
         index = 0;
@@ -111,7 +128,7 @@ class DataProvider with ChangeNotifier {
   }
 
   List<Chore> get personalChores {
-    return chores
+    return choreBox.values
         .where((chore) =>
             chore.assignees.isNotEmpty &&
             chore.assignees[chore.indexOfCurrentAssignee] == "You")

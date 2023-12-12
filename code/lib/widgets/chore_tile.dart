@@ -46,9 +46,22 @@ class ChoreTile extends StatelessWidget {
   }
 }
 
-class ChoreDetail extends StatelessWidget {
+class ChoreDetail extends StatefulWidget {
   final Chore chore;
   const ChoreDetail({super.key, required this.chore});
+
+  @override
+  State<ChoreDetail> createState() => _ChoreDetailState();
+}
+
+class _ChoreDetailState extends State<ChoreDetail> {
+  late Chore chore;
+
+  @override
+  void initState() {
+    chore = widget.chore;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,13 +77,15 @@ class ChoreDetail extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           trailing: IconButton(
-              onPressed: () {
-                showDialog(
+              onPressed: () async {
+                final res = await showDialog<Chore>(
                   context: context,
                   builder: (context) {
                     return ChoreEditDialog(chore: chore);
                   },
                 );
+
+                if (res != null) chore = res;
               },
               icon: const Icon(Icons.edit)),
         ),

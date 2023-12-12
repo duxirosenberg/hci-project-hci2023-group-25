@@ -83,7 +83,7 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                       data.updateChore(widget.chore!, newChore);
                     }
 
-                    Navigator.pop(context);
+                    Navigator.pop(context, newChore);
                   }
                 },
                 child: const Text("Save"),
@@ -119,7 +119,13 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                         label: Text("Notes"),
                         border: OutlineInputBorder(),
                       ),
-                      onSaved: (newValue) => notes = newValue,
+                      onSaved: (newValue) {
+                        if (newValue == null || newValue.trim() == "") {
+                          notes = null;
+                        } else {
+                          notes = newValue.trim();
+                        }
+                      },
                     ),
                     const SizedBox(
                       height: 12,

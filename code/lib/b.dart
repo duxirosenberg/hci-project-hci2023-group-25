@@ -71,7 +71,8 @@ class PersonalChoreList extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(vertical: 6),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: ChoreDetail(chore: item),
+                      child: ChoreDetail(
+                          key: ValueKey(item.hashCode), chore: item),
                     ),
                   ),
                 );

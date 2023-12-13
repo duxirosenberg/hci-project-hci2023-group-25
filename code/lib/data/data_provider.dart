@@ -70,11 +70,14 @@ class DataProvider with ChangeNotifier {
     final GroupedChores res = [];
 
     for (final room in roomBox.values) {
-      res.add((
-        room,
-        choreBox.values.where((chore) => chore.room == room.name).toList()
-          ..sortByDue(),
-      ));
+      final choresInRoom = choreBox.values
+          .where((chore) => chore.room == room.name)
+          .toList()
+        ..sortByDue();
+
+      if (choresInRoom.isNotEmpty) {
+        res.add((room, choresInRoom));
+      }
     }
     return res;
   }

@@ -5,6 +5,7 @@ class InitialData {
   List<Room> getRooms() {
     return [
       Room("General"),
+      Room("Living Room"),
       Room("Kitchen"),
       Room("Bathroom"),
     ];

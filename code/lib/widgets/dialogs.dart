@@ -4,6 +4,7 @@ import 'package:chore_manager/data/data_provider.dart';
 import 'package:chore_manager/widgets/chore_tile.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class ChoreDialog extends StatelessWidget {
@@ -69,7 +70,14 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
 
                     final newChore = Chore(
                       assignees: widget._assignees,
-                      indexOfCurrentAssignee: 0,
+                      // if editing chore, simply keeps the currentIndex as long as theres no overflow.
+                      // this leads to weird behaviour when the order was changed, but otherwise quite a pain
+                      indexOfCurrentAssignee:
+                          widget.chore?.indexOfCurrentAssignee ??
+                              0 %
+                                  (widget._assignees.isEmpty
+                                      ? 1
+                                      : widget._assignees.length),
                       name: name,
                       dueDate: dueDate,
                       frequency: frequency,
@@ -111,6 +119,67 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                     const SizedBox(
                       height: 12,
                     ),
+                    DropdownMenu(
+                      requestFocusOnTap: false,
+                      width: MediaQuery.of(context).size.width - 32,
+                      label: const Text("Room"),
+                      initialSelection: room,
+                      dropdownMenuEntries: data.roomBox.values
+                          .map((room) => DropdownMenuEntry(
+                              value: room.name, label: room.name))
+                          .toList(),
+                      onSelected: (value) => room = value!,
+                    ),
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            controller: dateFieldController,
+                            readOnly: true,
+                            decoration: const InputDecoration(
+                              label: Text("Due Date"),
+                              border: OutlineInputBorder(),
+                              suffixIcon: Icon(Icons.calendar_month),
+                            ),
+                            onTap: () async {
+                              final date = await showDatePicker(
+                                context: context,
+                                initialDate: MyDateUtils.today(),
+                                firstDate: MyDateUtils.today(),
+                                lastDate: DateTime(2050),
+                              );
+
+                              if (date != null) {
+                                dateFieldController.text =
+                                    date.toFormatString();
+                                dueDate = date;
+                              }
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: TextFormField(
+                            initialValue: frequency.toString(),
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            textAlign: TextAlign.center,
+                            decoration: const InputDecoration(
+                              label: Text("Repeat"),
+                              border: OutlineInputBorder(),
+                              prefixText: "every ",
+                              suffixText: " days",
+                            ),
+                            onSaved: (newValue) =>
+                                frequency = int.parse(newValue ?? ""),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
                     TextFormField(
                       initialValue: notes,
                       minLines: 3,
@@ -127,44 +196,13 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                         }
                       },
                     ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    DropdownMenu(
-                      width: MediaQuery.of(context).size.width - 32,
-                      label: const Text("Room"),
-                      initialSelection: room,
-                      dropdownMenuEntries: data.roomBox.values
-                          .map((room) => DropdownMenuEntry(
-                              value: room.name, label: room.name))
-                          .toList(),
-                      onSelected: (value) => room = value!,
-                    ),
-                    const SizedBox(height: 12),
-                    TextFormField(
-                      controller: dateFieldController,
-                      readOnly: true,
-                      decoration: const InputDecoration(
-                        label: Text("Due Date"),
-                        border: OutlineInputBorder(),
-                      ),
-                      onTap: () async {
-                        final date = await showDatePicker(
-                          context: context,
-                          initialDate: MyDateUtils.today(),
-                          firstDate: MyDateUtils.today(),
-                          lastDate: DateTime(2050),
-                        );
-
-                        if (date != null) {
-                          dateFieldController.text = date.toFormatString();
-                          dueDate = date;
-                        }
-                      },
-                    ),
                     const SizedBox(height: 24),
                     Text("Assignees",
-                        style: Theme.of(context).textTheme.titleLarge),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 8),
                     Wrap(
                       spacing: 8,
                       runSpacing: 4,
@@ -193,9 +231,11 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                           )
                           .toList(),
                     ),
+                    const SizedBox(height: 12),
                     if (widget._assignees.length >= 2) ...[
                       Text("In which order?",
                           style: Theme.of(context).textTheme.titleMedium),
+                      const SizedBox(height: 4),
                       SizedBox(
                         height: 40,
                         child: ReorderableListView(

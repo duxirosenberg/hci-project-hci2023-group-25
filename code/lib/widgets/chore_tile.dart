@@ -129,6 +129,19 @@ class _ChoreDetailState extends State<ChoreDetail> {
                 ),
               ],
             ),
+            if (chore.assignees.length >= 2)
+              ListTile(
+                visualDensity: VisualDensity.compact,
+                leading: const Icon(Icons.group),
+                title: Row(
+                  children: chore.assignees
+                      .map((user) => SizedBox(
+                          height: 28,
+                          width: 32,
+                          child: UserDisplay(user: user, small: true)))
+                      .toList(),
+                ),
+              ),
             if (chore.notes != null)
               ListTile(
                 visualDensity: VisualDensity.compact,

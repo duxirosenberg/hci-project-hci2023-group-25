@@ -17,6 +17,7 @@ class ChoreList extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (context, animation, item, i) {
         return SizeFadeTransition(
+          key: ValueKey(item.hashCode),
           animation: animation,
           child: ChoreTile(chore: item),
         );

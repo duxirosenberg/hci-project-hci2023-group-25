@@ -7,11 +7,17 @@ import 'package:flutter/material.dart';
 class ChoreList extends StatelessWidget {
   final bool scrollable;
   final List<Chore> chores;
-  const ChoreList({super.key, required this.chores, required this.scrollable});
+  final EdgeInsets? padding;
+  const ChoreList(
+      {super.key,
+      required this.chores,
+      required this.scrollable,
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
     return ImplicitlyAnimatedList(
+      padding: padding,
       physics: scrollable ? null : const NeverScrollableScrollPhysics(),
       items: chores,
       shrinkWrap: true,

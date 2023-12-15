@@ -31,11 +31,12 @@ class B extends StatelessWidget {
           children: [
             PersonalChoreList(chores: data.personalChores),
             ChoreList(
+              padding: const EdgeInsets.only(bottom: 80),
               chores: data.choreBox.values.toList()..sortByDue(),
               scrollable: true,
             ),
           ],
-        ), // only show personal chores
+        ),
         bottomNavigationBar: const MyNavigationBar(),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
@@ -63,6 +64,7 @@ class PersonalChoreList extends StatelessWidget {
       child: chores.isEmpty
           ? const Center(child: Text("Congrats, all your chores are done!"))
           : ImplicitlyAnimatedList<Chore>(
+              padding: const EdgeInsets.only(bottom: 80),
               items: chores,
               itemBuilder: (context, animation, item, i) {
                 return SizeFadeTransition(

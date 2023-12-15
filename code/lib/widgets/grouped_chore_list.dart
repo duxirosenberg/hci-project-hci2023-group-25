@@ -9,34 +9,44 @@ class GroupedChoreList extends StatelessWidget {
   const GroupedChoreList({super.key, required this.chores});
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.only(bottom: 90),
-      child: ExpansionPanelList(
-        expansionCallback: (panelIndex, isExpanded) {
-          context
-              .read<DataProvider>()
-              .setExpanded(chores[panelIndex].$1, isExpanded);
-        },
-        children: chores.map((entry) {
-          return ExpansionPanel(
-            isExpanded: entry.$1.expanded,
-            canTapOnHeader: true,
-            headerBuilder: (context, isExpanded) {
-              return ListTile(
-                title: Text(entry.$1.name),
-              );
-            },
-            body: entry.$2.isEmpty
-                ? const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
-                    child: Text("No chores here at the moment!"),
-                  )
-                : ChoreList(
-                    chores: entry.$2,
-                    scrollable: false,
+    return Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ListView(
+        padding: const EdgeInsets.only(bottom: 80),
+        children: chores
+            .map((entry) => Card(
+                  child: ExpansionTile(
+                    leading: entry.$3,
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "${entry.$2.length} Chore(s)",
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                        AnimatedRotation(
+                          turns: entry.$1.expanded ? 0.5 : 0,
+                          duration: const Duration(milliseconds: 200),
+                          child: const Icon(Icons.expand_more),
+                        ),
+                      ],
+                    ),
+                    initiallyExpanded: entry.$1.expanded,
+                    onExpansionChanged: (isExpanded) {
+                      context
+                          .read<DataProvider>()
+                          .setExpanded(entry.$1, isExpanded);
+                    },
+                    backgroundColor: Colors.transparent,
+                    title: Row(
+                      children: [
+                        Text(entry.$1.name),
+                      ],
+                    ),
+                    children: [ChoreList(chores: entry.$2, scrollable: false)],
                   ),
-          );
-        }).toList(),
+                ))
+            .toList(),
       ),
     );
   }

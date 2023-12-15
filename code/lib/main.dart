@@ -10,6 +10,7 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(ChoreAdapter());
+  Hive.registerAdapter(IconAdapter());
   Hive.registerAdapter<Room>(RoomAdapter());
   Hive.registerAdapter<User>(UserAdapter());
 

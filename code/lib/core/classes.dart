@@ -122,25 +122,41 @@ class ChoreGroup extends HiveObject {
   @HiveField(1)
   bool expanded = true;
 
-  ChoreGroup(this.name);
+  @HiveField(2)
+  IconData? icon;
+
+  ChoreGroup(this.name, {this.icon});
 }
 
 @HiveType(typeId: 2)
 class Room extends ChoreGroup {
-  Room(super.name);
+  Room(super.name, {super.icon});
 }
 
 @HiveType(typeId: 3)
 class User extends ChoreGroup {
-  User(super.name);
+  User(super.name, {super.icon});
 }
 
 class Due extends ChoreGroup {
-  Due(super.name);
+  Due(super.name, {super.icon});
 }
 
 class SpecialGroup extends ChoreGroup {
-  SpecialGroup(super.name);
+  SpecialGroup(super.name, {super.icon});
 }
 
-typedef GroupedChores = List<(ChoreGroup, List<Chore>)>;
+typedef GroupedChores = List<(ChoreGroup, List<Chore>, Widget)>;
+
+class IconAdapter extends TypeAdapter<IconData> {
+  @override
+  final typeId = 221;
+
+  @override
+  IconData read(BinaryReader reader) =>
+      IconData(reader.readUint32(), fontFamily: "MaterialIcons");
+
+  @override
+  void write(BinaryWriter writer, IconData obj) =>
+      writer.writeUint32(obj.codePoint);
+}

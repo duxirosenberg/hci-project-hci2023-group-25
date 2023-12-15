@@ -70,17 +70,20 @@ class ChoreGroupAdapter extends TypeAdapter<ChoreGroup> {
     };
     return ChoreGroup(
       fields[0] as String,
+      icon: fields[2] as IconData?,
     )..expanded = fields[1] as bool;
   }
 
   @override
   void write(BinaryWriter writer, ChoreGroup obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.expanded);
+      ..write(obj.expanded)
+      ..writeByte(2)
+      ..write(obj.icon);
   }
 
   @override
@@ -106,17 +109,20 @@ class RoomAdapter extends TypeAdapter<Room> {
     };
     return Room(
       fields[0] as String,
+      icon: fields[2] as IconData?,
     )..expanded = fields[1] as bool;
   }
 
   @override
   void write(BinaryWriter writer, Room obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.expanded);
+      ..write(obj.expanded)
+      ..writeByte(2)
+      ..write(obj.icon);
   }
 
   @override
@@ -142,17 +148,20 @@ class UserAdapter extends TypeAdapter<User> {
     };
     return User(
       fields[0] as String,
+      icon: fields[2] as IconData?,
     )..expanded = fields[1] as bool;
   }
 
   @override
   void write(BinaryWriter writer, User obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.expanded);
+      ..write(obj.expanded)
+      ..writeByte(2)
+      ..write(obj.icon);
   }
 
   @override

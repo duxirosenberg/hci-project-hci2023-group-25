@@ -158,7 +158,9 @@ class _ChoreDetailState extends State<ChoreDetail> {
 class UserDisplay extends StatelessWidget {
   final bool small;
   final String? user;
-  const UserDisplay({super.key, required this.user, required this.small});
+  final double? radius;
+  const UserDisplay(
+      {super.key, required this.user, required this.small, this.radius});
 
   @override
   Widget build(BuildContext context) {
@@ -176,6 +178,7 @@ class UserDisplay extends StatelessWidget {
         return CircleAvatar(
           backgroundColor:
               user == "You" ? Colors.greenAccent : Colors.lightBlueAccent,
+          radius: radius,
           child: Text(user!.substring(0, 1)),
         );
       }
@@ -206,6 +209,7 @@ class CheckboxOrBell extends StatelessWidget {
             value: false,
             onChanged: (value) {
               context.read<DataProvider>().markDone(chore);
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("\"${chore.name}\" marked as done"),
               ));
@@ -213,6 +217,7 @@ class CheckboxOrBell extends StatelessWidget {
           )
         : IconButton(
             onPressed: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("Sent a reminder for \"${chore.name}\""),
               ));

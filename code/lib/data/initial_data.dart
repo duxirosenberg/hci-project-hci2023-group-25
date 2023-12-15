@@ -1,13 +1,14 @@
 import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/core/utils.dart';
+import 'package:flutter/material.dart';
 
 class InitialData {
   List<Room> getRooms() {
     return [
-      Room("General"),
-      Room("Living Room"),
-      Room("Kitchen"),
-      Room("Bathroom"),
+      Room("General", icon: Icons.home),
+      Room("Living Room", icon: Icons.chair),
+      Room("Kitchen", icon: Icons.restaurant),
+      Room("Bathroom", icon: Icons.bathtub),
     ];
   }
 
@@ -21,9 +22,9 @@ class InitialData {
 
   List<Due> getDues() {
     return [
-      Due("Overdue"),
-      Due("Due Today"),
-      Due("Upcoming"),
+      Due("Overdue", icon: Icons.priority_high),
+      Due("Due Today", icon: Icons.task_alt),
+      Due("Upcoming", icon: Icons.low_priority),
     ];
   }
 
@@ -85,6 +86,15 @@ class InitialData {
         frequency: 1,
         room: "General",
         notes: "Also vacuum the sofa",
+      ),
+      Chore(
+        assignees: [],
+        indexOfCurrentAssignee: 0,
+        name: "Decalcify Kettle",
+        dueDate: MyDateUtils.today().add(const Duration(days: 21)),
+        frequency: 30,
+        room: "Kitchen",
+        notes: null,
       ),
     ];
   }

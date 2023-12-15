@@ -1,5 +1,6 @@
 import 'package:chore_manager/core/classes.dart';
 import 'package:chore_manager/data/initial_data.dart';
+import 'package:chore_manager/widgets/chore_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
@@ -26,7 +27,7 @@ class DataProvider with ChangeNotifier {
   final Box<User> userBox = Hive.box("users");
   late List<Due> dues;
 
-  SpecialGroup unassigned = SpecialGroup("Unassigned");
+  SpecialGroup unassigned = SpecialGroup("Unassigned", icon: Icons.no_accounts);
 
   DataProvider() {
     dues = InitialData().getDues();
@@ -76,7 +77,7 @@ class DataProvider with ChangeNotifier {
         ..sortByDue();
 
       if (choresInRoom.isNotEmpty) {
-        res.add((room, choresInRoom));
+        res.add((room, choresInRoom, Icon(room.icon)));
       }
     }
     return res;
@@ -94,22 +95,32 @@ class DataProvider with ChangeNotifier {
                 chore.assignees[chore.indexOfCurrentAssignee] == user.name)
             .toList()
           ..sortByDue(),
+        UserDisplay(
+          user: user.name,
+          small: true,
+          radius: 12,
+        ),
       ));
     }
 
-    res.add((
-      unassigned,
-      choreBox.values.where((chore) => chore.assignees.isEmpty).toList()
-    ));
+    final choresWithoutAssignee =
+        choreBox.values.where((chore) => chore.assignees.isEmpty).toList();
+    if (choresWithoutAssignee.isNotEmpty) {
+      res.add((
+        unassigned,
+        choresWithoutAssignee,
+        Icon(unassigned.icon),
+      ));
+    }
 
     return res;
   }
 
   GroupedChores get sortByDueDate {
     final GroupedChores res = [];
-    res.add((dues[0], [])); // overdue
-    res.add((dues[1], [])); // due today
-    res.add((dues[2], [])); // upcoming
+    res.add((dues[0], [], Icon(dues[0].icon))); // overdue
+    res.add((dues[1], [], Icon(dues[1].icon))); // due today
+    res.add((dues[2], [], Icon(dues[2].icon))); // upcoming
 
     for (final chore in choreBox.values) {
       int index;

@@ -9,44 +9,49 @@ class GroupedChoreList extends StatelessWidget {
   const GroupedChoreList({super.key, required this.chores});
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-      child: ListView(
-        padding: const EdgeInsets.only(bottom: 80),
-        children: chores
-            .map((entry) => Card(
-                  child: ExpansionTile(
-                    leading: entry.$3,
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ListView(
+          padding: const EdgeInsets.only(bottom: 80),
+          children: chores
+              .map((entry) => Card(
+                    child: ExpansionTile(
+                      leading: entry.$3,
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "${entry.$2.length} Chore(s)",
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                          AnimatedRotation(
+                            turns: entry.$1.expanded ? 0.5 : 0,
+                            duration: const Duration(milliseconds: 200),
+                            child: const Icon(Icons.expand_more),
+                          ),
+                        ],
+                      ),
+                      initiallyExpanded: entry.$1.expanded,
+                      onExpansionChanged: (isExpanded) {
+                        context
+                            .read<DataProvider>()
+                            .setExpanded(entry.$1, isExpanded);
+                      },
+                      backgroundColor: Colors.transparent,
+                      title: Row(
+                        children: [
+                          Text(entry.$1.name),
+                        ],
+                      ),
                       children: [
-                        Text(
-                          "${entry.$2.length} Chore(s)",
-                          style: const TextStyle(fontSize: 14),
-                        ),
-                        AnimatedRotation(
-                          turns: entry.$1.expanded ? 0.5 : 0,
-                          duration: const Duration(milliseconds: 200),
-                          child: const Icon(Icons.expand_more),
-                        ),
+                        ChoreList(chores: entry.$2, scrollable: false)
                       ],
                     ),
-                    initiallyExpanded: entry.$1.expanded,
-                    onExpansionChanged: (isExpanded) {
-                      context
-                          .read<DataProvider>()
-                          .setExpanded(entry.$1, isExpanded);
-                    },
-                    backgroundColor: Colors.transparent,
-                    title: Row(
-                      children: [
-                        Text(entry.$1.name),
-                      ],
-                    ),
-                    children: [ChoreList(chores: entry.$2, scrollable: false)],
-                  ),
-                ))
-            .toList(),
+                  ))
+              .toList(),
+        ),
       ),
     );
   }

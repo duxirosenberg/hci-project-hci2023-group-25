@@ -16,7 +16,7 @@ class A extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Chores'),
+          title: const Text('Chore Mate'),
           bottom: const TabBar(tabs: [
             Tab(text: "Room"),
             Tab(text: "Assigned to"),

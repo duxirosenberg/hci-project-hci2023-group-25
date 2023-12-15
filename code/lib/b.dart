@@ -15,21 +15,23 @@ class B extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final personalChores = data.personalChores;
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text("Chores"),
-          bottom: const TabBar(tabs: [
-            Tab(text: "Your chores"),
-            Tab(text: "All chores"),
+          title: const Text("Chore Mate"),
+          bottom: TabBar(tabs: [
+            Tab(text: "Your chores (${personalChores.length})"),
+            Tab(text: "All chores (${data.choreBox.length})"),
           ]),
           actions: const [Text("B"), TopActionMenu()],
         ),
         body: TabBarView(
           children: [
-            PersonalChoreList(chores: data.personalChores),
+            PersonalChoreList(chores: personalChores),
             ChoreList(
               padding: const EdgeInsets.only(bottom: 80),
               chores: data.choreBox.values.toList()..sortByDue(),
@@ -60,7 +62,7 @@ class PersonalChoreList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
       child: chores.isEmpty
           ? const Center(child: Text("Congrats, all your chores are done!"))
           : ImplicitlyAnimatedList<Chore>(
@@ -70,7 +72,6 @@ class PersonalChoreList extends StatelessWidget {
                 return SizeFadeTransition(
                   animation: animation,
                   child: Card(
-                    margin: const EdgeInsets.symmetric(vertical: 6),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: ChoreDetail(

@@ -98,7 +98,11 @@ class Chore extends HiveObject {
   }
 
   bool get assignedToUser {
-    return indexOfCurrentAssignee == 0;
+    if (indexOfCurrentAssignee < assignees.length) {
+      return assignees[indexOfCurrentAssignee] == "You";
+    } else {
+      return true;
+    }
   }
 
   String? get currentAssignee {

@@ -419,8 +419,9 @@ As part of our study, we integrated the NASA Task Load Index (NASA TLX) question
 ## Weeks 12-14: Prototype development, user study
 In the weeks 12-13 all group member conducted the study on two participants each and  collected the data accordingly to the final study protocol. From there on out all members refined different aspects of our project concurrently.
 
-- Some focused on writing the [study report](Deliverables/Study_Report_HCI-Group 25.pdf), which formalised, analysed and reported our study.
+- Some focused on writing the [study report]([Deliverables/Study_Report_HCI-Group 25.pdf](https://github.com/eth-hci-course/hci-project-hci2023-group-25/blob/2023/Deliverables/Study_Report_HCI-Group%2025.pdf)), which formalised, analysed and reported our study.
 - Some refined the prototype to look and fell more responsive and well thought through. As well as providing instructions on how to run it yourself.
 - Some created a video as a means of presenting the whole project and showcasing our prototype.
 - Some worked on the given [Bonus exercise](Deliverables/Bonus/bonus_2023/bonus_exercise.ipynb) which was about finding an optimal keyboard layout.
+  
 Overall the final weeks we're the most productive ones. With everyone tying up different loose ends, to create a satisfactory prototype, a sound and extensive stud report and a short presentation to wrap-up our whole project. 

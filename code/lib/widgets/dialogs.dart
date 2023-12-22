@@ -287,6 +287,7 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                               context: context,
                               builder: (context) => const ConfirmDialog(
                                 title: "Delete Chore?",
+                                infoText: null,
                                 confirmText: "Delete",
                               ),
                             );
@@ -333,15 +334,20 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
 
 class ConfirmDialog extends StatelessWidget {
   final String title;
+  final String? infoText;
   final String confirmText;
-  const ConfirmDialog(
-      {super.key, required this.title, required this.confirmText});
+  const ConfirmDialog({
+    super.key,
+    required this.title,
+    required this.confirmText,
+    required this.infoText,
+  });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(title),
-      content: const Text("This action cannot be undone."),
+      content: Text(infoText ?? "This action cannot be undone."),
       actions: [
         TextButton(
             onPressed: () {

@@ -378,8 +378,12 @@ During this week our team planned how we want to conduct our user study and furt
 #### Variant A
 Prototype variant A matches what we've done in the mid-fidelity prototype. A task overview which lets us switch between different modes to structure and sort tasks. In detail: structuring tasks by due date, by assignee and by room. Tasks are shown as a list of tasks, and each task can be expanded by pressing on it to reveal more details.
 
+![Screenshot of the finished variant A](img/VariantA.PNG)
+
 #### Variant B
 For prototype B we focus more specifically on the user. When opening the app, the first thing you see are all tasks that are assigned to you with more initial information provided as in the first prototype, whatever was only visible in A by expanding the task is visible already in B. When accessing all items, not only the ones assigned to the respective user, a mode switch is required to a different menu. This menu will list all tasks similarly as prototype A did, with the need to expand the tasks for more information.
+
+![Screenshot of the finished variant B](img/VariantB.PNG)
 
 ### Description of the user study
 #### Goal

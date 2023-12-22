@@ -67,6 +67,11 @@ class DataProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> deleteChore(Chore chore) async {
+    chore.delete();
+    notifyListeners();
+  }
+
   GroupedChores get sortByRoom {
     final GroupedChores res = [];
 

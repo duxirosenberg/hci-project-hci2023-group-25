@@ -48,7 +48,8 @@ class ChoreTile extends StatelessWidget {
 
 class ChoreDetail extends StatefulWidget {
   final Chore chore;
-  const ChoreDetail({super.key, required this.chore});
+  final bool dialog;
+  const ChoreDetail({super.key, required this.chore, this.dialog = false});
 
   @override
   State<ChoreDetail> createState() => _ChoreDetailState();
@@ -81,7 +82,10 @@ class _ChoreDetailState extends State<ChoreDetail> {
                 final res = await showDialog<Chore>(
                   context: context,
                   builder: (context) {
-                    return ChoreEditDialog(chore: chore);
+                    return ChoreEditDialog(
+                      chore: chore,
+                      onDeletePopTwice: widget.dialog,
+                    );
                   },
                 );
 

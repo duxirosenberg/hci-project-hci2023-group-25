@@ -45,7 +45,10 @@ class B extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return ChoreEditDialog(chore: null);
+                  return ChoreEditDialog(
+                    chore: null,
+                    onDeletePopTwice: false,
+                  );
                 },
               );
             },

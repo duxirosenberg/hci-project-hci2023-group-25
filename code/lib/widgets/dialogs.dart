@@ -17,14 +17,21 @@ class ChoreDialog extends StatelessWidget {
       insetPadding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
       content: SizedBox(
           width: 800,
-          child: SingleChildScrollView(child: ChoreDetail(chore: chore))),
+          child: SingleChildScrollView(
+              child: ChoreDetail(
+            chore: chore,
+            dialog: true,
+          ))),
     );
   }
 }
 
 class ChoreEditDialog extends StatefulWidget {
   final Chore? chore;
-  ChoreEditDialog({super.key, required this.chore})
+  final bool onDeletePopTwice; // needed if choredetail is open in dialog
+
+  ChoreEditDialog(
+      {super.key, required this.chore, required this.onDeletePopTwice})
       : _assignees = chore?.assignees ?? [];
   final List<String> _assignees;
 
@@ -104,7 +111,7 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
               key: formKey,
               child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextFormField(
                       initialValue: name,
@@ -265,7 +272,54 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
                           },
                         ),
                       ),
-                    ]
+                    ],
+                    if (widget.chore != null) ...[
+                      const SizedBox(height: 16),
+                      Center(
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                              foregroundColor: MaterialStateColor.resolveWith(
+                                  (states) => Colors.white),
+                              backgroundColor: MaterialStateColor.resolveWith(
+                                  (states) => Colors.red)),
+                          onPressed: () async {
+                            final res = await showDialog<bool>(
+                              context: context,
+                              builder: (context) => const ConfirmDialog(
+                                title: "Delete Chore?",
+                                confirmText: "Delete",
+                              ),
+                            );
+                            if ((res ?? false) && context.mounted) {
+                              context
+                                  .read<DataProvider>()
+                                  .deleteChore(widget.chore!);
+                              Navigator.pop(context);
+                              if (widget.onDeletePopTwice) {
+                                Navigator.pop(context);
+                              }
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content:
+                                    Text("\"${widget.chore!.name}\" deleted"),
+                              ));
+                            }
+                          },
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.delete),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text("Delete"),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ],
                 ),
               ),
@@ -274,5 +328,32 @@ class _ChoreEditDialogState extends State<ChoreEditDialog> {
         ),
       );
     });
+  }
+}
+
+class ConfirmDialog extends StatelessWidget {
+  final String title;
+  final String confirmText;
+  const ConfirmDialog(
+      {super.key, required this.title, required this.confirmText});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(title),
+      content: const Text("This action cannot be undone."),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text("Cancel")),
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context, true);
+            },
+            child: Text(confirmText)),
+      ],
+    );
   }
 }

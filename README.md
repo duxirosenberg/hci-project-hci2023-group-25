@@ -375,15 +375,17 @@ Overall, the feedback highlights the importance of clear onboarding and intuitiv
 During this week our team planned how we want to conduct our user study and further brainstormed about our Hi-fidelity prototype. As we've decided last week we'll focus on the chore/task-manager part of our app and develop two prototype variants A, B accordingly. As discussed with a teaching assistant during the exercise session we've focused on finding a sweet spot between creating enough variation between prototypes, to conduct an interesting user study, but not too much, to keep the independent variables clear.
 
 ### Prototype variants
+
+<img src="img/VariantA.PNG" alt="Screenshot of the finished variant A" width="250px">
+<img src="img/VariantB.PNG" alt="Screenshot of the finished variant B" width="250px">
+
+*Variants A (left) and B (right)*
+
 #### Variant A
 Prototype variant A matches what we've done in the mid-fidelity prototype. A task overview which lets us switch between different modes to structure and sort tasks. In detail: structuring tasks by due date, by assignee and by room. Tasks are shown as a list of tasks, and each task can be expanded by pressing on it to reveal more details.
 
-![Screenshot of the finished variant A](img/VariantA.PNG)
-
 #### Variant B
 For prototype B we focus more specifically on the user. When opening the app, the first thing you see are all tasks that are assigned to you with more initial information provided as in the first prototype, whatever was only visible in A by expanding the task is visible already in B. When accessing all items, not only the ones assigned to the respective user, a mode switch is required to a different menu. This menu will list all tasks similarly as prototype A did, with the need to expand the tasks for more information.
-
-![Screenshot of the finished variant B](img/VariantB.PNG)
 
 ### Description of the user study
 #### Goal
